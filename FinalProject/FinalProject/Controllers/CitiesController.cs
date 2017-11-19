@@ -50,15 +50,13 @@ namespace FinalProject.Controllers
             {
                 foreach (City city in db.Cities.ToList())
                 {
-                    if (city.CityNumber > BiggestCity)
+                    if (city.CityNumber >= BiggestCity)
                     {
                         BiggestCity = city.CityNumber;
                         ViewBag.CityNumber = BiggestCity + 1;
                     }
                 }
             }
-            
-            
             return View();
         }
 
@@ -67,7 +65,7 @@ namespace FinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CityID,CityNumber,CityName,AirportCode")] City city)
+        public ActionResult Create([Bind(Include = "CityID,CityNumber,CityName,AirportCode, State")] City city)
         {
             if (ModelState.IsValid)
             {
