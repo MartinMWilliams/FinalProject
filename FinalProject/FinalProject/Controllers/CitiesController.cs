@@ -39,22 +39,26 @@ namespace FinalProject.Controllers
         // GET: Cities/Create
         public ActionResult Create()
         {
-            if (db.Cities.ToList() == null)
+            int BiggestCity = 8001;
+
+            if (db.Cities.ToList().Any() == false)
             {
-                ViewBag.CityNumber = 8000;
+                BiggestCity = 8001;
+                ViewBag.CityNumber = BiggestCity;
             }
             else
             {
                 foreach (City city in db.Cities.ToList())
                 {
-                    int BiggestCity = 8000;
                     if (city.CityNumber > BiggestCity)
                     {
                         BiggestCity = city.CityNumber;
-                        ViewBag.CityNumber = BiggestCity+1;
+                        ViewBag.CityNumber = BiggestCity + 1;
                     }
                 }
             }
+            
+            
             return View();
         }
 
