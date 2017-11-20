@@ -71,7 +71,7 @@ namespace FinalProject.Controllers
             {
                 db.Cities.Add(city);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create","Durations",city);
             }
 
             return View(city);

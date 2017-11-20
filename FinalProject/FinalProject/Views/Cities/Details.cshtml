@@ -42,8 +42,33 @@
             @Html.DisplayFor(model => model.AirportCode)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Durations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durations)
+        </dd>
     </dl>
 </div>
+@*<table class="table table-bordered">
+    <tr>
+        <th>
+            City
+        </th>
+        <th>
+            Distance
+        </th>
+    </tr>
+
+    @foreach (var item in Model.Durations)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.City2)</td>
+            <td>@Html.DisplayFor(modelItem => item.Mileage)</td>
+        </tr>
+    }
+</table>*@
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.CityID }) |
     @Html.ActionLink("Back to List", "Index")

@@ -17,8 +17,6 @@
         <div class="form-group">
             @Html.LabelFor(model => model.CityNumber, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @*@Html.EditorFor(model => model.CityNumber, new { htmlAttributes = new { @class = "form-control" } })*@
-                
                 @Html.TextBox("CityNumber", (int)ViewBag.CityNumber, new { @readonly = "readonly" })
                 @Html.ValidationMessageFor(model => model.CityNumber, "", new { @class = "text-danger", })
             </div>

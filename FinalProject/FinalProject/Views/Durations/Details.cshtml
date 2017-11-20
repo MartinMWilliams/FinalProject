@@ -1,0 +1,49 @@
+﻿@model FinalProject.Models.Duration
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Duration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Mileage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Mileage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.City2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.City2)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DurationID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
