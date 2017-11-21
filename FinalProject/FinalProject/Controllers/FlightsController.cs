@@ -60,6 +60,28 @@ namespace FinalProject.Controllers
             ViewBag.AllCities = GetAllCities();
             ViewBag.AllDays = GetAllDays();
 
+            int BiggestFlight = 100;
+
+            if (db.Cities.ToList().Any() == false)
+            {
+                BiggestFlight = 100;
+                ViewBag.FlightNumber = BiggestFlight;
+            }
+            else
+            {
+                foreach (Flight flight in db.Flights.ToList())
+                {
+                    if (flight.FlightNumber >= BiggestFlight)
+                    {
+                        BiggestFlight = flight.FlightNumber;
+                        ViewBag.FlightNumber = BiggestFlight + 1;
+                    }
+                }
+            }
+            if (ViewBag.FlightNumber == null)
+            {
+                ViewBag.FlightNumber = 100;
+            }
             return View();
         }
 
@@ -68,10 +90,142 @@ namespace FinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(Int32 BaseFare, int[] SelectedDays, DateTime DepTime, int SelectedDepCity, int SelectedArrivalCity)
+        //(Int32 BaseFare, List<ListItem> SelectedDays, DateTime DepTime, int SelectedDepCity, int SelectedArrivalCity)
+        public ActionResult Create(int FlightNumber, int SelectedDepCity, int SelectedArrivalCity, List<ListItem> SelectedDays, Decimal BaseFare, DateTime DepartureTime)
         {
+            City DepartureCity = db.Cities.Find(SelectedDepCity);
+            City ArrivalCity = db.Cities.Find(SelectedArrivalCity);
             if (ModelState.IsValid)
             {
+                //Array values = Enum.GetValues(typeof(Days));
+                //List<ListItem> allDays = new List<ListItem>(values.Length);
+
+                foreach (var i in SelectedDays)
+                {
+                    if (i.Value == "Monday")
+                    {
+                        Flight Dec11Flight = new Flight();
+                        Dec11Flight.FlightNumber = FlightNumber;
+                        Dec11Flight.ArrivalCity = ArrivalCity.CityName;
+                        Dec11Flight.DepartureCity = DepartureCity.CityName;
+                        Dec11Flight.BaseFare = BaseFare;
+                        Dec11Flight.DepartureTime = DepartureTime;
+                        Dec11Flight.Date = new DateTime(2017,12,11);
+
+                        Flight Dec18Flight = new Flight();
+                        Dec11Flight.FlightNumber = FlightNumber;
+                        Dec11Flight.ArrivalCity = ArrivalCity.CityName;
+                        Dec11Flight.DepartureCity = DepartureCity.CityName;
+                        Dec11Flight.BaseFare = BaseFare;
+                        Dec11Flight.DepartureTime = DepartureTime;
+                        Dec11Flight.Date = new DateTime(2017, 12, 18);
+
+                        Flight Dec25Flight = new Flight();
+                        Dec11Flight.FlightNumber = FlightNumber;
+                        Dec11Flight.ArrivalCity = ArrivalCity.CityName;
+                        Dec11Flight.DepartureCity = DepartureCity.CityName;
+                        Dec11Flight.BaseFare = BaseFare;
+                        Dec11Flight.DepartureTime = DepartureTime;
+                        Dec11Flight.Date = new DateTime(2017, 12, 25);
+                    }
+                    //if (i.Value == "Tuesday")
+                    //{
+                    //    Flight Dec12Flight = new Flight;
+                    //    Dec12Flight.FlightNumber = NewTopFlightNumber;
+                    //    Dec12Flight.ArrivalCity = ArrivalCity;
+                    //    Dec12Flight.DepartureCity = DepartureCity;
+                    //    Dec12Flight.BaseFare = BaseFare;
+                    //    Dec12Flight.Date = "2017-12-12";
+
+                    //    Flight Dec19Flight = new Flight;
+                    //    Dec19Flight.FlightNumber = NewTopFlightNumber;
+                    //    Dec19Flight.ArrivalCity = ArrivalCity;
+                    //    Dec19Flight.DepartureCity = DepartureCity;
+                    //    Dec19Flight.BaseFare = BaseFare;
+                    //    Dec19Flight.Date = "2017-12-19";
+                    //}
+                    //if (DayOfWeek == "Wednesday")
+                    //{
+                    //    Flight Dec12Flight = new Flight;
+                    //    Dec12Flight.FlightNumber = NewTopFlightNumber;
+                    //    Dec12Flight.ArrivalCity = ArrivalCity;
+                    //    Dec12Flight.DepartureCity = DepartureCity;
+                    //    Dec12Flight.BaseFare = BaseFare;
+                    //    Dec12Flight.Date = "2017-12-12";
+
+                    //    Flight Dec19Flight = new Flight;
+                    //    Dec19Flight.FlightNumber = NewTopFlightNumber;
+                    //    Dec19Flight.ArrivalCity = ArrivalCity;
+                    //    Dec19Flight.DepartureCity = DepartureCity;
+                    //    Dec19Flight.BaseFare = BaseFare;
+                    //    Dec19Flight.Date = "2017-12-19";
+                    //}
+                    //if (DayOfWeek == "Wednesday")
+                    //{
+                    //    Flight Dec12Flight = new Flight;
+                    //    Dec12Flight.FlightNumber = NewTopFlightNumber;
+                    //    Dec12Flight.ArrivalCity = ArrivalCity;
+                    //    Dec12Flight.DepartureCity = DepartureCity;
+                    //    Dec12Flight.BaseFare = BaseFare;
+                    //    Dec12Flight.Date = "2017-12-12";
+
+                    //    Flight Dec19Flight = new Flight;
+                    //    Dec19Flight.FlightNumber = NewTopFlightNumber;
+                    //    Dec19Flight.ArrivalCity = ArrivalCity;
+                    //    Dec19Flight.DepartureCity = DepartureCity;
+                    //    Dec19Flight.BaseFare = BaseFare;
+                    //    Dec19Flight.Date = "2017-12-19";
+                    //}
+                    //if (DayOfWeek == "Wednesday")
+                    //{
+                    //    Flight Dec12Flight = new Flight;
+                    //    Dec12Flight.FlightNumber = NewTopFlightNumber;
+                    //    Dec12Flight.ArrivalCity = ArrivalCity;
+                    //    Dec12Flight.DepartureCity = DepartureCity;
+                    //    Dec12Flight.BaseFare = BaseFare;
+                    //    Dec12Flight.Date = "2017-12-12";
+
+                    //    Flight Dec19Flight = new Flight;
+                    //    Dec19Flight.FlightNumber = NewTopFlightNumber;
+                    //    Dec19Flight.ArrivalCity = ArrivalCity;
+                    //    Dec19Flight.DepartureCity = DepartureCity;
+                    //    Dec19Flight.BaseFare = BaseFare;
+                    //    Dec19Flight.Date = "2017-12-19";
+                    //}
+                    //if (DayOfWeek == "Wednesday")
+                    //{
+                    //    Flight Dec12Flight = new Flight;
+                    //    Dec12Flight.FlightNumber = NewTopFlightNumber;
+                    //    Dec12Flight.ArrivalCity = ArrivalCity;
+                    //    Dec12Flight.DepartureCity = DepartureCity;
+                    //    Dec12Flight.BaseFare = BaseFare;
+                    //    Dec12Flight.Date = "2017-12-12";
+
+                    //    Flight Dec19Flight = new Flight;
+                    //    Dec19Flight.FlightNumber = NewTopFlightNumber;
+                    //    Dec19Flight.ArrivalCity = ArrivalCity;
+                    //    Dec19Flight.DepartureCity = DepartureCity;
+                    //    Dec19Flight.BaseFare = BaseFare;
+                    //    Dec19Flight.Date = "2017-12-19";
+                    //}
+                    //if (DayOfWeek == "Wednesday")
+                    //{
+                    //    Flight Dec12Flight = new Flight;
+                    //    Dec12Flight.FlightNumber = NewTopFlightNumber;
+                    //    Dec12Flight.ArrivalCity = ArrivalCity;
+                    //    Dec12Flight.DepartureCity = DepartureCity;
+                    //    Dec12Flight.BaseFare = BaseFare;
+                    //    Dec12Flight.Date = "2017-12-12";
+
+                    //    Flight Dec19Flight = new Flight;
+                    //    Dec19Flight.FlightNumber = NewTopFlightNumber;
+                    //    Dec19Flight.ArrivalCity = ArrivalCity;
+                    //    Dec19Flight.DepartureCity = DepartureCity;
+                    //    Dec19Flight.BaseFare = BaseFare;
+                    //    Dec19Flight.Date = "2017-12-19";
+                    //}
+
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
