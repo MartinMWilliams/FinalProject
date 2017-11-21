@@ -9,7 +9,7 @@
         @*@*<br /> <br />
             time: @html.textboxfor(model => model.departuretime, new { @type = "time", @value = model.departuretime.tostring("hh:mm")})*@
         <br /> <br />
-        days: @Html.ListBox("AllDays", (MultiSelectList)ViewBag.AllDays, new { @class = "form-control"})
+        Days: @Html.ListBox("AllDays", (MultiSelectList)ViewBag.AllDays, new { @class = "form-control"})
             <br /> <br />*
         Fare: @Html.TextBox("BaseFare", null, new { @class = "form-control" })
         <br /> <br />
