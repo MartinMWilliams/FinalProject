@@ -32,7 +32,22 @@ namespace FinalProject.Models
         public String FirstName { get; set; }
 
         //Additional fields go here
+        [Display(Name = "M")]
+        public String MiddleInitial { get; set; }
+        
+        [Required(ErrorMessage = "Last name is required.")]
+        [Display(Name = "Last Name")]
+        public String LastName { get; set; }
 
+        public DateTime DateofBirth { get; set; }
+
+        public String Address { get; set; }
+
+        public String City { get; set; }
+
+        public String Zip { get; set; }
+
+        public Int32 Miles { get; set; }
 
         //NOTE: Here is the property for email
         [Required]
