@@ -21,6 +21,23 @@ namespace FinalProject.Controllers
             return View(db.Flights.ToList());
         }
 
+        public SelectList GetAllCities()
+        {
+            var query = from c in db.Cities
+                        orderby c.CityName
+                        select c;
+
+            List<City> allCities = query.ToList();
+
+            SelectList allCitieslist = new SelectList(allCities, "CityID", "CityName");
+
+            return allCitieslist;
+        }
+
+
+
+
+
         // GET: Flights/Details/5
         public ActionResult Details(int? id)
         {
@@ -39,6 +56,8 @@ namespace FinalProject.Controllers
         // GET: Flights/Create
         public ActionResult Create()
         {
+            ViewBag.AllCities = GetAllCities();
+
             return View();
         }
 
@@ -47,16 +66,15 @@ namespace FinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FlightID,FlightNumber,DepartureCity,ArrivalCity,Day,BaseFare,DepartureTime,ArrivalTime")] Flight flight)
+        public ActionResult Create(Int32 BaseFare, int[] SelectedDays, DateTime DepTime, int SelectedDepCity, int SelectedArrivalCity)
         {
             if (ModelState.IsValid)
             {
-                db.Flights.Add(flight);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(flight);
+            return View();
         }
 
         // GET: Flights/Edit/5
