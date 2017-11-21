@@ -1,6 +1,8 @@
 ﻿@using (Html.BeginForm("Create", "Flight", FormMethod.Get))
 {
     <p class="form-group">
+        <br /> <br />
+        <br /> <br />
         Departure City: @Html.DropDownList("SelectedDepCity", (SelectList)ViewBag.AllCities, new { @class = "form-control" })
         <br /> <br />
         Arrival City: @Html.DropDownList("SelectedArCity", (SelectList)ViewBag.AllCities, new { @class = "form-control" })
