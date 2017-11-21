@@ -18,6 +18,9 @@
             @Html.DisplayNameFor(model => model.DepartureCity)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.ArrivalCity)
         </th>
         <th>
@@ -27,10 +30,7 @@
             @Html.DisplayNameFor(model => model.BaseFare)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DepartureTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ArrivalTime)
+           
         </th>
         <th></th>
     </tr>
@@ -44,6 +44,9 @@
             @Html.DisplayFor(modelItem => item.DepartureCity)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.DepartureTime)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.ArrivalCity)
         </td>
         <td>
@@ -53,10 +56,7 @@
             @Html.DisplayFor(modelItem => item.BaseFare)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DepartureTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ArrivalTime)
+        
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.FlightID }) |
