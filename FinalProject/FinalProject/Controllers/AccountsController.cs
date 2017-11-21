@@ -118,6 +118,13 @@ namespace FinalProject.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
+                    FirstName = model.FirstName,
+                    MiddleInitial = model.MiddleInitial,
+                    LastName = model.LastName,
+                    DateofBirth = model.DateofBirth,
+                    Address = model.Address,
+                    City = model.City,
+                    Zip = model.Zip
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
 

@@ -41,6 +41,8 @@ namespace FinalProject.Models
 
         public Int32 AdvantageNumber { get; set; }
 
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateofBirth { get; set; }
 
         public String Address { get; set; }
