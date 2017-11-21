@@ -39,6 +39,8 @@ namespace FinalProject.Models
         [Display(Name = "Last Name")]
         public String LastName { get; set; }
 
+        public Int32 AdvantageNumber { get; set; }
+
         public DateTime DateofBirth { get; set; }
 
         public String Address { get; set; }
