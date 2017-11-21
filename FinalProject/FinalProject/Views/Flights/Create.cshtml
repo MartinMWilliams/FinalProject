@@ -6,11 +6,11 @@
         Departure City: @Html.DropDownList("SelectedDepCity", (SelectList)ViewBag.AllCities, new { @class = "form-control" })
         <br /> <br />
         Arrival City: @Html.DropDownList("SelectedArCity", (SelectList)ViewBag.AllCities, new { @class = "form-control" })
-        @*<br /> <br />
-            Time: @Html.TextBoxFor(model => model.DepartureTime, new { @type = "time", @Value = Model.DepartureTime.ToString("HH:mm")})*@
+        @*@*<br /> <br />
+            time: @html.textboxfor(model => model.departuretime, new { @type = "time", @value = model.departuretime.tostring("hh:mm")})*@
         <br /> <br />
-        @*Days: @Html.ListBox("SelectedDays", (MultiSelectList)ViewBag.AllDays, new { @class = "form-control"})
-            <br /> <br />*@
+        days: @Html.ListBox("AllDays", (MultiSelectList)ViewBag.AllDays, new { @class = "form-control"})
+            <br /> <br />*
         Fare: @Html.TextBox("BaseFare", null, new { @class = "form-control" })
         <br /> <br />
     </p>
