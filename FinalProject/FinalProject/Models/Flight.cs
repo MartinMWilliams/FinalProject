@@ -6,6 +6,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace FinalProject.Models
 {
+    public enum Days
+    {
+        Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday
+    }
     public class Flight
     {
         public Int32 FlightID { get; set; }

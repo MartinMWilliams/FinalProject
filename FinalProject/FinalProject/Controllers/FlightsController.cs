@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using FinalProject.DAL;
 using FinalProject.Models;
+using System.Web.UI.WebControls;
 
 namespace FinalProject.Controllers
 {
@@ -57,6 +58,7 @@ namespace FinalProject.Controllers
         public ActionResult Create()
         {
             ViewBag.AllCities = GetAllCities();
+            ViewBag.AllDays = GetAllDays();
 
             return View();
         }
@@ -141,6 +143,23 @@ namespace FinalProject.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        public MultiSelectList GetAllDays()
+        {
+        
+            Array values = Enum.GetValues(typeof(Days));
+            List<ListItem> allDays = new List<ListItem>(values.Length);
+
+            foreach (var i in values)
+            {
+                allDays.Add(new ListItem
+                {
+                    Text = Enum.GetName(typeof(Days), i),
+                    Value = ((int)i).ToString()
+                });
+            }
+            MultiSelectList mulitselectDays = new MultiSelectList(allDays);
+            return mulitselectDays;
         }
     }
 }
