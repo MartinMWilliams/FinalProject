@@ -149,11 +149,20 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-1.9.1-vsdoc.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Accounts\ChangePassword.cshtml" />
     <Content Include="Views\Accounts\Index.cshtml" />
@@ -208,6 +217,18 @@
     <Compile Include="Migrations\201711200438592_test2.Designer.cs">
       <DependentUpon>201711200438592_test2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711280106131_hi.cs" />
+    <Compile Include="Migrations\201711280106131_hi.Designer.cs">
+      <DependentUpon>201711280106131_hi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711280107379_hi2.cs" />
+    <Compile Include="Migrations\201711280107379_hi2.Designer.cs">
+      <DependentUpon>201711280107379_hi2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711281721577_yay.cs" />
+    <Compile Include="Migrations\201711281721577_yay.Designer.cs">
+      <DependentUpon>201711281721577_yay.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -227,6 +248,7 @@
     <Content Include="Views\Durations\Details.cshtml" />
     <Content Include="Views\Durations\Edit.cshtml" />
     <Content Include="Views\Durations\Index.cshtml" />
+    <Content Include="Views\Accounts\RegisterEmployee.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -249,6 +271,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711200438592_test2.resx">
       <DependentUpon>201711200438592_test2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711280106131_hi.resx">
+      <DependentUpon>201711280106131_hi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711280107379_hi2.resx">
+      <DependentUpon>201711280107379_hi2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711281721577_yay.resx">
+      <DependentUpon>201711281721577_yay.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

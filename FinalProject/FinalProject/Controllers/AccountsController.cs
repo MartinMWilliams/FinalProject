@@ -153,6 +153,63 @@ namespace FinalProject.Controllers
             return View(model);
         }
 
+        [AllowAnonymous]
+        public ActionResult RegisterEmployee()
+        {
+            return View();
+        }
+
+        //
+        // POST: /Accounts/RegisterEmployee
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> RegisterEmployee(RegisterEmployeeViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                //TODO: Add fields to user here so they will be saved to do the database
+                var user = new AppUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    PhoneNumber = model.PhoneNumber,
+                    FirstName = model.FirstName,
+                    MiddleInitial = model.MiddleInitial,
+                    LastName = model.LastName,
+                    EmployeeType = model.EmployeeType,
+                    Address = model.Address,
+                    City = model.City,
+                    Zip = model.Zip
+                };
+                var result = await UserManager.CreateAsync(user, model.Password);
+                
+
+                //TODO:  Once you get roles working, you may want to add users to roles upon creation
+                // await UserManager.AddToRoleAsync(user.Id, "Member");
+                // --OR--
+                // await UserManager.AddToRoleAsync(user.Id, "Employee");
+
+
+                if (result.Succeeded)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
+                    // Send an email with this link
+                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+
+                    return RedirectToAction("Index", "Home");
+                }
+                AddErrors(result);
+            }
+
+            // If we got this far, something failed, redisplay form
+            return View(model);
+        }
+
         //Logic for change password
         // GET: /Accounts/ChangePassword
         public ActionResult ChangePassword()

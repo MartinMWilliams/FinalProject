@@ -9,7 +9,15 @@ using System.Collections.Generic;
 
 //TODO: Change this namespace to match your project
 namespace FinalProject.Models
+{   public enum EmpType
 {
+    Agent,
+    Manager,
+    Pilot,
+    Cabin,
+    CoPilot
+}
+
 
     // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit http://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
 
@@ -44,6 +52,7 @@ namespace FinalProject.Models
 
         public Int32 Miles { get; set; }
 
+        public EmpType EmployeeType {get;set;}
 
         //This method allows you to create a new user
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<AppUser> manager)

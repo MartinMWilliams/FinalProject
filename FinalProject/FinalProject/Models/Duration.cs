@@ -13,7 +13,7 @@ namespace FinalProject.Models
 
         [DataType(DataType.Time)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:HH:mm}")]
-        public DateTime FlightTime { get; set; }
+        public TimeSpan FlightTime { get; set; }
 
         public virtual City City1 { get; set; }
         public virtual City City2 { get; set; }
