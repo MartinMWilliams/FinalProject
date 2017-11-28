@@ -27,6 +27,7 @@ namespace FinalProject.Models
         //TODO: Put any additional fields that you need for your user here
         //For instance
 
+        [Display(Name = "Advantage Number")]
         public Int32 AdvantageNumber { get; set; }
 
         [Required(ErrorMessage = "First name is required.")]
@@ -42,6 +43,7 @@ namespace FinalProject.Models
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Date of Birth")]
         public DateTime DateofBirth { get; set; }
 
         public String Address { get; set; }
@@ -52,6 +54,7 @@ namespace FinalProject.Models
 
         public Int32 Miles { get; set; }
 
+        [Display(Name = "Employee Type")]
         public EmpType EmployeeType {get;set;}
 
         //This method allows you to create a new user
