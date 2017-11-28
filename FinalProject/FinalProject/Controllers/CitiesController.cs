@@ -57,6 +57,10 @@ namespace FinalProject.Controllers
                     }
                 }
             }
+            if (ViewBag.CityNumber == null)
+            {
+                ViewBag.CityNumber = 8001;
+            }
             return View();
         }
 
