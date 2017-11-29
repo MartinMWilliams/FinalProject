@@ -17,10 +17,35 @@ namespace FinalProject.Controllers
         private AppDbContext db = new AppDbContext();
 
         // GET: Flights
-        public ActionResult Index()
+        public ActionResult Index(DateTime SearchDate)
         {
-            return View(db.Flights.ToList());
+            //Do we want a count for the number of flights here?
+
+            //Create a list of Flights
+            List<Flight> SelectedFlights = new List<Flight>();
+
+            //Check to see if SearchString is null
+            if (SearchDate == null)
+            {
+                //Count?
+
+                //Show all flights
+                return View(db.Flights.ToList());
+            }
+            else
+            {
+                ViewBag.SearchDate = SearchDate;
+
+                //Find flights that have the searched date
+                SelectedFlights = db.Flights.Where(f => f.Date == SearchDate).ToList();
+
+                //Count?
+
+                //Show selected Flights in order
+                return View(SelectedFlights.OrderBy(f => f.FlightNumber));
+            }
         }
+
 
         public SelectList GetAllCities()
         {
