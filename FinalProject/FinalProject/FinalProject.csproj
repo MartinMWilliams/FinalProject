@@ -217,18 +217,6 @@
     <Compile Include="Migrations\201711200438592_test2.Designer.cs">
       <DependentUpon>201711200438592_test2.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201711280106131_hi.cs" />
-    <Compile Include="Migrations\201711280106131_hi.Designer.cs">
-      <DependentUpon>201711280106131_hi.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711280107379_hi2.cs" />
-    <Compile Include="Migrations\201711280107379_hi2.Designer.cs">
-      <DependentUpon>201711280107379_hi2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201711281721577_yay.cs" />
-    <Compile Include="Migrations\201711281721577_yay.Designer.cs">
-      <DependentUpon>201711281721577_yay.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -271,15 +259,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711200438592_test2.resx">
       <DependentUpon>201711200438592_test2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711280106131_hi.resx">
-      <DependentUpon>201711280106131_hi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711280107379_hi2.resx">
-      <DependentUpon>201711280107379_hi2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201711281721577_yay.resx">
-      <DependentUpon>201711281721577_yay.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
