@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace FinalProject.Models
 {
@@ -61,12 +62,16 @@ namespace FinalProject.Models
 
     public class City
     {
+        [Display(Name = "City ID")]
         public Int32 CityID { get; set; }
 
+        [Display(Name = "City Number")]
         public Int32 CityNumber { get; set; }
         
+        [Display(Name = "City Name")]
         public String CityName { get; set; }
 
+        [Display(Name = "Airport Code")]
         public String AirportCode { get; set; }
 
         public States State { get; set; }
