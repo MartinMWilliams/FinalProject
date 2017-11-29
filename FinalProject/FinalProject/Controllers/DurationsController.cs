@@ -39,36 +39,60 @@ namespace FinalProject.Controllers
         // GET: Durations/Create
         public ActionResult Create(City city)
         {
-            City DepartureCity = city;
-            ViewBag.SelectedCity = GetSelectedCity(DepartureCity);
+            ViewBag.SelectedCity = GetSelectedCity(city);
             ViewBag.AllCities = GetAllCities();
             return View();
         }
+
 
         // POST: Durations/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DurationID,Mileage,FlightTime")] Duration duration, Int32 City1ID, Int32 City2ID)
+        public ActionResult Create([Bind(Include = "DurationID,Mileage,FlightTime")] Duration duration1, Int32 City1ID, Int32 City2ID)
         {
+            List<City> allCities = db.Cities.ToList();
+             
             City SelectedCity1 = db.Cities.Find(City1ID);
-            SelectedCity1.Durations.Add(duration);
-            duration.City1 = SelectedCity1;
+            duration1.City1 = SelectedCity1;
+            
 
             City SelectedCity2 = db.Cities.Find(City2ID);
-            SelectedCity2.Durations.Add(duration);
-            duration.City2 = SelectedCity2;
+            duration1.City2 = SelectedCity2;
+
+            List<City> selectedCities = db.Durations.Select(c => c.City2).ToList();
+            if (selectedCities.Contains(SelectedCity1) == false)
+            {
+                selectedCities.Add(SelectedCity1);
+            }
+
+            Duration duration2 = new Duration();
+            duration2.City1 = SelectedCity2;
+            duration2.City2 = SelectedCity1;
+            duration2.Mileage = duration1.Mileage;
+            duration2.FlightTime = duration1.FlightTime;
+
 
             if (ModelState.IsValid)
             {
-                db.Durations.Add(duration);
+                db.Durations.Add(duration1);
+                db.Durations.Add(duration2);
                 db.SaveChanges();
-                return RedirectToAction("Index","Cities");
+
+                var set = new HashSet<City>(allCities);
+                var equals = set.SetEquals(selectedCities);
+                if(equals == true)
+                {
+                    
+                    return RedirectToAction("Index", "Cities");
+                }
+
+                return RedirectToAction("Create", "Durations",SelectedCity1);
             }
 
             ViewBag.AllCities = GetAllCities();
-            return View(duration);
+            return View(duration1);
         }
 
         // GET: Durations/Edit/5
@@ -161,5 +185,7 @@ namespace FinalProject.Controllers
             return SelectedCity;
 
         }
+
+        
     }
 }
