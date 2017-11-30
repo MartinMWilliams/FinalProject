@@ -22,6 +22,43 @@ namespace FinalProject.Controllers
             return View(db.Flights.ToList());
         }
 
+        //Detailed Search method
+        public ActionResult DetailedSearch()
+        {
+            ViewBag.AllCities = GetAllCities();
+            return View();
+        }
+
+        //Search results method
+        public ActionResult SearchResults(int SelectedDepartureCity, int SelectedArrivalCity)
+        {
+            var query = from f in db.Flights
+                        select f;
+
+            //Drop down list for departure city
+            if (SelectedDepartureCity == 0) //they chose all departure cities
+            {
+                ViewBag.SelectedDepartureCity = "No departure city was selected";
+            }
+            else //city was chosen
+            {
+                //Set the AllCities list from the GetCities method that is in the city model?
+                List<City> AllCities = db.Cities.ToList();
+                City CityToDisplay = AllCities.Find(c => c.CityID == SelectedDepartureCity);
+                ViewBag.SelectedDepartureCity = "The selected departure city is " + CityToDisplay.CityName;
+
+                //Query the results based on the selected departure city
+                query = query.Where(f => f.DepartureCity == CityToDisplay.CityName);
+            }
+
+            //Set up selected flights list based on query results
+            List<Flight> SelectedFlights = query.ToList();
+
+            //send to view
+            return View("Index", SelectedFlights.OrderBy(f => f.DepartureCity));
+        }
+
+
 
         public SelectList GetAllCities()
         {
