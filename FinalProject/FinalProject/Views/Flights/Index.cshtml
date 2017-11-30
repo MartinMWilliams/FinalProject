@@ -6,6 +6,16 @@
 
 <h2>Index</h2>
 
+@using (Html.BeginForm())
+{
+    <p class="form-group">
+        Search Date: @Html.TextBox("SearchDate", null, new { @class = "form-control"}) <br />
+        <input type="submit" value="Search" class="btn btn-default"/>
+        @Html.ActionLink("Detailed Search", "DetailedSearch", null, new { @class="btn btn-default"})
+        @Html.ActionLink("Show All", "Index", null, new { @class="btn btn-default"})
+    </p>
+}
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
