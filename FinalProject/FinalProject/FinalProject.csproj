@@ -266,6 +266,7 @@
     <Content Include="Views\Durations\Edit.cshtml" />
     <Content Include="Views\Durations\Index.cshtml" />
     <Content Include="Views\Accounts\RegisterEmployee.cshtml" />
+    <Content Include="Views\Flights\DetailedSearch.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

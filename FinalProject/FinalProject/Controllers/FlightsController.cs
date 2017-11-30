@@ -22,6 +22,12 @@ namespace FinalProject.Controllers
             return View(db.Flights.ToList());
         }
 
+        //Detailed Search method
+        public ActionResult DetailedSearch()
+        {
+            ViewBag.AllCities = GetAllCities();
+            return View();
+        }
 
         public SelectList GetAllCities()
         {

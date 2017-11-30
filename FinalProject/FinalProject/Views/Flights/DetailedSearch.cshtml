@@ -1,0 +1,22 @@
+﻿@using FinalProject.Controllers
+@{
+    ViewBag.Title = "Detailed Search";
+}
+
+<h2>Detailed Search</h2>
+
+@using (Html.BeginForm("SearchResults", "Flights", FormMethod.Get))
+{
+    <p class="form-group">
+        Departure City: @Html.DropDownList("SelectedCity", (SelectList)ViewBag.AllCities, new { @class = "form-control"})
+
+
+        Arrival City: @Html.DropDownList("SelectedCity", (SelectList)ViewBag.AllCities, new { @class = "form-control" })
+
+
+        Date:
+
+
+        <input type="submit" value="Search" class="btn btn-default" />
+    </p>
+}
