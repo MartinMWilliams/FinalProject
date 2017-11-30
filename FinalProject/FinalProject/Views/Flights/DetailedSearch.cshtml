@@ -8,13 +8,13 @@
 @using (Html.BeginForm("SearchResults", "Flights", FormMethod.Get))
 {
     <p class="form-group">
-        Departure City: @Html.DropDownList("SelectedCity", (SelectList)ViewBag.AllCities, new { @class = "form-control"})
+        Departure City: @Html.DropDownList("SelectedDepartureCity", (SelectList)ViewBag.AllCities, new { @class = "form-control"})
 
 
-        Arrival City: @Html.DropDownList("SelectedCity", (SelectList)ViewBag.AllCities, new { @class = "form-control" })
+        Arrival City: @Html.DropDownList("SelectedArrivalCity", (SelectList)ViewBag.AllCities, new { @class = "form-control" })
 
 
-        Date:
+        Date: 
 
 
         <input type="submit" value="Search" class="btn btn-default" />
