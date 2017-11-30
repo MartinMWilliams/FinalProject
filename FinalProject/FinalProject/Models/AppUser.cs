@@ -50,6 +50,8 @@ namespace FinalProject.Models
 
         public String City { get; set; }
 
+        public States State { get; set; }
+
         public String Zip { get; set; }
 
         public Int32 Miles { get; set; }

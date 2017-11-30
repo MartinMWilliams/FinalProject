@@ -39,17 +39,27 @@ namespace FinalProject.Models
         [Display(Name = "Last Name")]
         public String LastName { get; set; }
 
+        [Required(ErrorMessage = "Phone Number is required.")]
+        [Display(Name = "Phone Number")]
+        public String PhoneNumber { get; set; }
+
         public Int32 AdvantageNumber { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime DateofBirth { get; set; }
 
+
         public String Address { get; set; }
 
         public String City { get; set; }
 
+
         public String Zip { get; set; }
+
+        [Required(ErrorMessage = "State is required.")]
+        public States State { get; set; }
+
 
         public Int32 Miles { get; set; }
 
@@ -58,6 +68,7 @@ namespace FinalProject.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
+
 
         //NOTE: Here is the logic for putting in a password
         [Required]
@@ -96,8 +107,12 @@ namespace FinalProject.Models
         [Required(ErrorMessage = "City is required.")]
         public String City { get; set; }
 
-        [Required(ErrorMessage = "Employee type is required.")]
+        [Required(ErrorMessage = "Zip is required.")]
         public String Zip { get; set; }
+
+
+        [Required(ErrorMessage = "State is required.")]
+        public States State { get; set; }
 
         [Required(ErrorMessage = "Phone Number is required.")]
         [Display(Name = "Phone Number")]

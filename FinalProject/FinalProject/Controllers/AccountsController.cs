@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 
+
+
 //TODO: Change this using statement to match your project
 using FinalProject.Models;
 
@@ -124,7 +126,9 @@ namespace FinalProject.Controllers
                     DateofBirth = model.DateofBirth,
                     Address = model.Address,
                     City = model.City,
-                    Zip = model.Zip
+                    State = model.State,
+                    Zip = model.Zip,
+                    PhoneNumber = model.PhoneNumber
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
 
@@ -156,6 +160,7 @@ namespace FinalProject.Controllers
         [AllowAnonymous]
         public ActionResult RegisterEmployee()
         {
+
             return View();
         }
 
@@ -168,6 +173,7 @@ namespace FinalProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                
                 //TODO: Add fields to user here so they will be saved to do the database
                 var user = new AppUser
                 {
@@ -180,6 +186,7 @@ namespace FinalProject.Controllers
                     EmployeeType = model.EmployeeType,
                     Address = model.Address,
                     City = model.City,
+                    State = model.State,
                     Zip = model.Zip
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);

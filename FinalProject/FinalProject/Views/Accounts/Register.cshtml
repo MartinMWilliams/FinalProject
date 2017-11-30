@@ -1,5 +1,7 @@
 ﻿@model FinalProject.Models.RegisterViewModel
 @{
+    <br /><br />
+    <br /><br />
     ViewBag.Title = "Register";
 }
 
@@ -57,6 +59,13 @@
             @Html.TextBoxFor(m => m.City, new { @class = "form-control" })
         </div>
     </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.State, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EnumDropDownListFor(x => x.State, new { @class = "form-control" })
+        </div>
+    </div>
+
     <div class="form-group">
         @Html.LabelFor(m => m.Zip, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
