@@ -187,7 +187,8 @@ namespace FinalProject.Controllers
                     Address = model.Address,
                     City = model.City,
                     State = model.State,
-                    Zip = model.Zip
+                    Zip = model.Zip,
+                    DateofBirth = DateTime.Now
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 
