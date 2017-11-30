@@ -237,6 +237,14 @@
     <Compile Include="Migrations\201711290240072_asdfasdf.Designer.cs">
       <DependentUpon>201711290240072_asdfasdf.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201711301748349_flightindex.cs" />
+    <Compile Include="Migrations\201711301748349_flightindex.Designer.cs">
+      <DependentUpon>201711301748349_flightindex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201711301755418_fixedflights.cs" />
+    <Compile Include="Migrations\201711301755418_fixedflights.Designer.cs">
+      <DependentUpon>201711301755418_fixedflights.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -295,6 +303,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711290240072_asdfasdf.resx">
       <DependentUpon>201711290240072_asdfasdf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301748349_flightindex.resx">
+      <DependentUpon>201711301748349_flightindex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201711301755418_fixedflights.resx">
+      <DependentUpon>201711301755418_fixedflights.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
