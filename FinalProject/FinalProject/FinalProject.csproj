@@ -237,6 +237,18 @@
     <Compile Include="Migrations\201711290240072_asdfasdf.Designer.cs">
       <DependentUpon>201711290240072_asdfasdf.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712010355384_sync1.cs" />
+    <Compile Include="Migrations\201712010355384_sync1.Designer.cs">
+      <DependentUpon>201712010355384_sync1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712010418437_sync2.cs" />
+    <Compile Include="Migrations\201712010418437_sync2.Designer.cs">
+      <DependentUpon>201712010418437_sync2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712010420252_whoops.cs" />
+    <Compile Include="Migrations\201712010420252_whoops.Designer.cs">
+      <DependentUpon>201712010420252_whoops.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -295,6 +307,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711290240072_asdfasdf.resx">
       <DependentUpon>201711290240072_asdfasdf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712010355384_sync1.resx">
+      <DependentUpon>201712010355384_sync1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712010418437_sync2.resx">
+      <DependentUpon>201712010418437_sync2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712010420252_whoops.resx">
+      <DependentUpon>201712010420252_whoops.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -62,6 +62,7 @@ namespace FinalProject.Models
 
     public class City
     {
+
         [Display(Name = "City ID")]
         public Int32 CityID { get; set; }
 
@@ -72,8 +73,9 @@ namespace FinalProject.Models
         public String CityName { get; set; }
 
         [Display(Name = "Airport Code")]
+        [StringLength(3, ErrorMessage = "Airport Code must be 3 characters")]
         public String AirportCode { get; set; }
-
+        
         public States State { get; set; }
 
         public virtual List<Duration> Durations { get; set; }

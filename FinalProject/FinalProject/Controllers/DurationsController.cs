@@ -40,7 +40,8 @@ namespace FinalProject.Controllers
         public ActionResult Create(City city)
         {
             ViewBag.SelectedCity = GetSelectedCity(city);
-            ViewBag.AllCities = GetAllCities();
+            //ViewBag.AllCities = GetAllCities(city);
+            ViewBag.RemainingCities = GetRemainingCities(city);
             return View();
         }
 
@@ -53,7 +54,7 @@ namespace FinalProject.Controllers
         public ActionResult Create([Bind(Include = "DurationID,Mileage,FlightTime")] Duration duration1, Int32 City1ID, Int32 City2ID)
         {
             List<City> allCities = db.Cities.ToList();
-             
+            
             City SelectedCity1 = db.Cities.Find(City1ID);
             duration1.City1 = SelectedCity1;
             
@@ -82,9 +83,13 @@ namespace FinalProject.Controllers
 
                 var set = new HashSet<City>(allCities);
                 var equals = set.SetEquals(selectedCities);
-                if(equals == true)
+                //if(equals == true)
+                //{
+
+                //    return RedirectToAction("Index", "Cities");
+                //}
+                if (GetRemainingCities(SelectedCity1).ToList().Any() == false)
                 {
-                    
                     return RedirectToAction("Index", "Cities");
                 }
 
@@ -184,6 +189,23 @@ namespace FinalProject.Controllers
             SelectList SelectedCity = new SelectList(cityList, "CityID", "CityName");
             return SelectedCity;
 
+        }
+
+        public SelectList GetRemainingCities(City SelectedCity1)
+        {
+            List<City> AllCities = db.Cities.ToList();
+
+            List<City> SelectedCities = db.Durations.Select(c => c.City2).ToList();
+            if (SelectedCities.Contains(SelectedCity1) == false)
+            {
+                SelectedCities.Add(SelectedCity1);
+            }
+
+
+            List<City> citylist = AllCities.Except(SelectedCities).ToList();
+            
+            SelectList RemainingCities = new SelectList(citylist, "CityID", "CityName");
+            return RemainingCities;
         }
 
         
