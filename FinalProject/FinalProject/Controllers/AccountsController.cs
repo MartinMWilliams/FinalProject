@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using FinalProject.DAL;
 
 
 
@@ -20,6 +21,7 @@ namespace FinalProject.Controllers
     [Authorize]
     public class AccountsController : Controller
     {
+        private AppDbContext db = new AppDbContext();
         private ApplicationSignInManager _signInManager;
         private AppUserManager _userManager;
 
@@ -103,6 +105,29 @@ namespace FinalProject.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
+            int BiggestAdv = 5001;
+
+            if (db.Users.ToList().Any() == false)
+            {
+                BiggestAdv = 5001;
+                ViewBag.AdvantageNumber = BiggestAdv;
+            }
+            else
+            {
+                foreach (AppUser customer in db.Users.ToList())
+                {
+                    if (customer.AdvantageNumber >= BiggestAdv)
+                    {
+                        BiggestAdv = customer.AdvantageNumber;
+                        ViewBag.CityNumber = BiggestAdv + 1;
+                    }
+                }
+            }
+            if (ViewBag.AdvantageNumber == null)
+            {
+                ViewBag.AdvantageNumber = 5001;
+            }
+
             return View();
         }
 
@@ -113,8 +138,10 @@ namespace FinalProject.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+
             if (ModelState.IsValid)
             {
+               
                 //TODO: Add fields to user here so they will be saved to do the database
                 var user = new AppUser
                 {
@@ -128,7 +155,8 @@ namespace FinalProject.Controllers
                     City = model.City,
                     State = model.State,
                     Zip = model.Zip,
-                    PhoneNumber = model.PhoneNumber
+                    PhoneNumber = model.PhoneNumber, 
+                    AdvantageNumber = model.AdvantageNumber
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
 

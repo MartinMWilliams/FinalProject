@@ -54,6 +54,7 @@ namespace FinalProject.Models
 
         public String City { get; set; }
 
+        public Int32 AdvangtageNumber { get; set; }
 
         public String Zip { get; set; }
 
