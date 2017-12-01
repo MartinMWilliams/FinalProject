@@ -17,34 +17,63 @@ namespace FinalProject.Controllers
         private AppDbContext db = new AppDbContext();
 
         // GET: Flights
-        public ActionResult Index(DateTime SearchDate)
+        public ActionResult Index()
         {
-            //Do we want a count for the number of flights here?
-
-            //Create a list of Flights
-            List<Flight> SelectedFlights = new List<Flight>();
-
-            //Check to see if SearchString is null
-            if (SearchDate == null)
-            {
-                //Count?
-
-                //Show all flights
-                return View(db.Flights.ToList());
-            }
-            else
-            {
-                ViewBag.SearchDate = SearchDate;
-
-                //Find flights that have the searched date
-                SelectedFlights = db.Flights.Where(f => f.Date == SearchDate).ToList();
-
-                //Count?
-
-                //Show selected Flights in order
-                return View(SelectedFlights.OrderBy(f => f.FlightNumber));
-            }
+            return View(db.Flights.ToList());
         }
+
+        //Detailed Search method
+        public ActionResult DetailedSearch()
+        {
+            ViewBag.AllCities = GetAllCities();
+            return View();
+        }
+
+        //Search results method
+        public ActionResult SearchResults(int SelectedDepartureCity, int SelectedArrivalCity)
+        {
+            var query = from f in db.Flights
+                        select f;
+
+            //Drop down list for Departure City
+            if (SelectedDepartureCity == 0) //they chose all departure cities
+            {
+                ViewBag.SelectedDepartureCity = "No departure city was selected";
+            }
+            else //city was chosen
+            {
+                //Set the AllCities list from the GetCities method that is in the City model?
+                List<City> AllCities = db.Cities.ToList();
+                City CityToDisplay = AllCities.Find(c => c.CityID == SelectedDepartureCity);
+                ViewBag.SelectedDepartureCity = "The selected departure city is " + CityToDisplay.CityName;
+
+                //Query the results based on the selected departure city
+                query = query.Where(f => f.DepartureCity == CityToDisplay.CityName);
+            }
+
+            //Drope down list for Arrival Citty
+            if (SelectedArrivalCity == 0) //they chose all arrival cities
+            {
+                ViewBag.SelectedArrivalCity = "No arrival city was selected";
+            }
+            else //city was chosen
+            {
+                //Set the AllCities list from the GetCities method that is in the City model?
+                List<City> AllCities = db.Cities.ToList();
+                City CityToDisplay = AllCities.Find(c => c.CityID == SelectedArrivalCity);
+                ViewBag.SelectedArrivalCity = "The selected arrival city is " + CityToDisplay.CityName;
+
+                //Query the results based on the selected Arrival City
+                query = query.Where(f => f.ArrivalCity == CityToDisplay.CityName);
+            }
+
+            //Set up selected flights list based on query results
+            List<Flight> SelectedFlights = query.ToList();
+
+            //send to view
+            return View("Index", SelectedFlights.OrderBy(f => f.DepartureCity));
+        }
+
 
 
         public SelectList GetAllCities()

@@ -6,6 +6,14 @@
 
 <h2>Index</h2>
 
+@using (Html.BeginForm())
+{
+    <p class="form-group">
+        @Html.ActionLink("Detailed Search", "DetailedSearch", null, new { @class="btn btn-default"})
+        @Html.ActionLink("Show All", "Index", null, new { @class="btn btn-default"})
+    </p>
+}
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>

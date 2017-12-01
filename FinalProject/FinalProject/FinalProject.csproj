@@ -237,17 +237,13 @@
     <Compile Include="Migrations\201711290240072_asdfasdf.Designer.cs">
       <DependentUpon>201711290240072_asdfasdf.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712010355384_sync1.cs" />
-    <Compile Include="Migrations\201712010355384_sync1.Designer.cs">
-      <DependentUpon>201712010355384_sync1.cs</DependentUpon>
+    <Compile Include="Migrations\201711301748349_flightindex.cs" />
+    <Compile Include="Migrations\201711301748349_flightindex.Designer.cs">
+      <DependentUpon>201711301748349_flightindex.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712010418437_sync2.cs" />
-    <Compile Include="Migrations\201712010418437_sync2.Designer.cs">
-      <DependentUpon>201712010418437_sync2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712010420252_whoops.cs" />
-    <Compile Include="Migrations\201712010420252_whoops.Designer.cs">
-      <DependentUpon>201712010420252_whoops.cs</DependentUpon>
+    <Compile Include="Migrations\201711301755418_fixedflights.cs" />
+    <Compile Include="Migrations\201711301755418_fixedflights.Designer.cs">
+      <DependentUpon>201711301755418_fixedflights.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -270,6 +266,7 @@
     <Content Include="Views\Durations\Edit.cshtml" />
     <Content Include="Views\Durations\Index.cshtml" />
     <Content Include="Views\Accounts\RegisterEmployee.cshtml" />
+    <Content Include="Views\Flights\DetailedSearch.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -308,14 +305,11 @@
     <EmbeddedResource Include="Migrations\201711290240072_asdfasdf.resx">
       <DependentUpon>201711290240072_asdfasdf.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712010355384_sync1.resx">
-      <DependentUpon>201712010355384_sync1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711301748349_flightindex.resx">
+      <DependentUpon>201711301748349_flightindex.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712010418437_sync2.resx">
-      <DependentUpon>201712010418437_sync2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712010420252_whoops.resx">
-      <DependentUpon>201712010420252_whoops.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201711301755418_fixedflights.resx">
+      <DependentUpon>201711301755418_fixedflights.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
