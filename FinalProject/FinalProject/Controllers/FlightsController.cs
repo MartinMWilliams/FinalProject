@@ -35,20 +35,36 @@ namespace FinalProject.Controllers
             var query = from f in db.Flights
                         select f;
 
-            //Drop down list for departure city
+            //Drop down list for Departure City
             if (SelectedDepartureCity == 0) //they chose all departure cities
             {
                 ViewBag.SelectedDepartureCity = "No departure city was selected";
             }
             else //city was chosen
             {
-                //Set the AllCities list from the GetCities method that is in the city model?
+                //Set the AllCities list from the GetCities method that is in the City model?
                 List<City> AllCities = db.Cities.ToList();
                 City CityToDisplay = AllCities.Find(c => c.CityID == SelectedDepartureCity);
                 ViewBag.SelectedDepartureCity = "The selected departure city is " + CityToDisplay.CityName;
 
                 //Query the results based on the selected departure city
                 query = query.Where(f => f.DepartureCity == CityToDisplay.CityName);
+            }
+
+            //Drope down list for Arrival Citty
+            if (SelectedArrivalCity == 0) //they chose all arrival cities
+            {
+                ViewBag.SelectedArrivalCity = "No arrival city was selected";
+            }
+            else //city was chosen
+            {
+                //Set the AllCities list from the GetCities method that is in the City model?
+                List<City> AllCities = db.Cities.ToList();
+                City CityToDisplay = AllCities.Find(c => c.CityID == SelectedArrivalCity);
+                ViewBag.SelectedArrivalCity = "The selected arrival city is " + CityToDisplay.CityName;
+
+                //Query the results based on the selected Arrival City
+                query = query.Where(f => f.ArrivalCity == CityToDisplay.CityName);
             }
 
             //Set up selected flights list based on query results
