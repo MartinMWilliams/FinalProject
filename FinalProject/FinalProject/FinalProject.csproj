@@ -237,10 +237,19 @@
     <Compile Include="Migrations\201711290240072_asdfasdf.Designer.cs">
       <DependentUpon>201711290240072_asdfasdf.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712010426004_sync3.cs" />
+    <Compile Include="Migrations\201712010426004_sync3.Designer.cs">
+      <DependentUpon>201712010426004_sync3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712030337432_whywhywhywhywhy.cs" />
+    <Compile Include="Migrations\201712030337432_whywhywhywhywhy.Designer.cs">
+      <DependentUpon>201712030337432_whywhywhywhywhy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\FlightViewModel.cs" />
     <Compile Include="Models\Duration.cs" />
     <Compile Include="Models\Flight.cs" />
     <Compile Include="Models\IdentityRoles.cs" />
@@ -296,6 +305,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201711290240072_asdfasdf.resx">
       <DependentUpon>201711290240072_asdfasdf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712010426004_sync3.resx">
+      <DependentUpon>201712010426004_sync3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712030337432_whywhywhywhywhy.resx">
+      <DependentUpon>201712030337432_whywhywhywhywhy.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

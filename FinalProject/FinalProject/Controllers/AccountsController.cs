@@ -119,7 +119,7 @@ namespace FinalProject.Controllers
                     if (customer.AdvantageNumber >= BiggestAdv)
                     {
                         BiggestAdv = customer.AdvantageNumber;
-                        ViewBag.CityNumber = BiggestAdv + 1;
+                        ViewBag.AdvantageNumber = BiggestAdv + 1;
                     }
                 }
             }
