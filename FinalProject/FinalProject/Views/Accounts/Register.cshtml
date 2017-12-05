@@ -13,12 +13,11 @@
     <h4>Create a new account.</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
-
     <div class="form-group">
-        @Html.LabelFor(model => model.AdvangtageNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.AdvantageNumber, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBox("CityNumber", (int)ViewBag.AdvantageNumber, new { @readonly = "readonly" })
-            @Html.ValidationMessageFor(model => model.AdvangtageNumber, "", new { @class = "text-danger", })
+            @Html.TextBoxFor(m => m.AdvantageNumber, new { @readonly = "readonly" })
+            @Html.ValidationMessageFor(model => model.AdvantageNumber, "", new { @class = "text-danger", })
         </div>
     </div>
 

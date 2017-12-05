@@ -105,30 +105,35 @@ namespace FinalProject.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            int BiggestAdv = 5001;
+            RegisterViewModel customer = new RegisterViewModel();
+
+            int BiggestAdvantage = 5001;
 
             if (db.Users.ToList().Any() == false)
             {
-                BiggestAdv = 5001;
-                ViewBag.AdvantageNumber = BiggestAdv;
+                BiggestAdvantage = 5001;
+                //ViewBag.FlightNumber = BiggestFlight;
+                customer.AdvantageNumber = BiggestAdvantage;
             }
             else
             {
-                foreach (AppUser customer in db.Users.ToList())
+                foreach (AppUser f in db.Users.ToList())
                 {
-                    if (customer.AdvantageNumber >= BiggestAdv)
+                    if (f.AdvantageNumber >= BiggestAdvantage)
                     {
-                        BiggestAdv = customer.AdvantageNumber;
-                        ViewBag.AdvantageNumber = BiggestAdv + 1;
+                        BiggestAdvantage = f.AdvantageNumber + 1;
+                        //ViewBag.FlightNumber = BiggestFlight + 1;
+                        customer.AdvantageNumber = BiggestAdvantage;
                     }
                 }
             }
-            if (ViewBag.AdvantageNumber == null)
+            if (ViewBag.FlightNumber == null)
             {
-                ViewBag.AdvantageNumber = 5001;
+                //ViewBag.FlightNumber = 100;
+                customer.AdvantageNumber = BiggestAdvantage;
             }
 
-            return View();
+            return View(customer);
         }
 
         //
