@@ -254,6 +254,7 @@
     <Compile Include="Models\Flight.cs" />
     <Compile Include="Models\IdentityRoles.cs" />
     <Compile Include="Models\Reservation.cs" />
+    <Compile Include="Models\ReservationFlightDetail.cs" />
     <Compile Include="Models\RoleViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
