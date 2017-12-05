@@ -713,9 +713,6 @@ namespace FinalProject.Controllers
         {
             TimeSpan FlightTime = new TimeSpan();
 
-            if (db.Durations.Any(d => d.City1.CityID == DepartureCityID && d.City2.CityID == ArrivalCityID))
-            {
-            }
 
             FlightTime = db.Durations.FirstOrDefault(a => a.City1.CityID == DepartureCityID && a.City2.CityID == ArrivalCityID).FlightTime;
 
