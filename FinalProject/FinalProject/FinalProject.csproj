@@ -193,7 +193,6 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
-    <Compile Include="Controllers\ReservationViewModel.cs" />
     <Compile Include="Controllers\DurationsController.cs" />
     <Compile Include="Controllers\FlightsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -256,6 +255,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\ReservationViewModel.cs" />
     <Compile Include="Models\FlightViewModel.cs" />
     <Compile Include="Models\Duration.cs" />
     <Compile Include="Models\Flight.cs" />

@@ -8,6 +8,7 @@ namespace FinalProject.Controllers
     public class ReservationViewModel
     {
         public Int32 ReservationNumber { get; set; }
+
         public bool RoundTrip { get; set; }
 
         public bool AnotherFlight { get; set; }

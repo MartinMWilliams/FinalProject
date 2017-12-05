@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
@@ -145,14 +145,12 @@ namespace FinalProject.Controllers
                     if (f.FlightNumber >= BiggestFlight)
                     {
                         BiggestFlight = f.FlightNumber + 1;
-                        //ViewBag.FlightNumber = BiggestFlight + 1;
                         flight.FlightNumber = BiggestFlight;
                     }
                 }
             }
             if (ViewBag.FlightNumber == null)
             {
-                //ViewBag.FlightNumber = 100;
                 flight.FlightNumber = BiggestFlight;
             }
 
@@ -164,7 +162,7 @@ namespace FinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(FlightCreateViewModel flight) //int DepartureCityID, int ArrivalCityID
+        public ActionResult Create(FlightCreateViewModel flight) 
         {
             flight.DepartureCityName = db.Cities.FirstOrDefault(c=>c.CityID == flight.DepartureCityID).CityName;
 
@@ -181,8 +179,8 @@ namespace FinalProject.Controllers
                         Dec4Flight.DepartureCity = flight.ArrivalCityName;
                         Dec4Flight.BaseFare = flight.BaseFare;
                         Dec4Flight.DepartureTime = flight.DepartureTime;
-                        //Dec4Flight.ArrivalTime = Dec4Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
-                        Dec4Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
+                        Dec4Flight.ArrivalTime = Dec4Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
+                        //Dec4Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec4Flight.Date = new DateTime(2017, 12, 4);
 
                         Flight Dec11Flight = new Flight();
@@ -715,8 +713,8 @@ namespace FinalProject.Controllers
 
 
             FlightTime = db.Durations.FirstOrDefault(a => a.City1.CityID == DepartureCityID && a.City2.CityID == ArrivalCityID).FlightTime;
-
-            return FlightTime;
+           
+                        return FlightTime;
 
         }
     }
