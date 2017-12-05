@@ -8,6 +8,8 @@
 @using (Html.BeginForm("SearchResults", "Flights", FormMethod.Get))
 {
     <p class="form-group">
+        Date: @Html.TextBox("SelectedDate", "yyyy-MM-DD", new { @class = "form-control" } )
+
         Departure City: @Html.DropDownList("SelectedDepartureCity", (SelectList)ViewBag.AllCities, new { @class = "form-control"})
 
 

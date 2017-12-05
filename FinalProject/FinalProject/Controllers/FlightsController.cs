@@ -31,7 +31,7 @@ namespace FinalProject.Controllers
         }
 
         //Search results method
-        public ActionResult SearchResults(int SelectedDepartureCity, int SelectedArrivalCity)
+        public ActionResult SearchResults(int SelectedDepartureCity, int SelectedArrivalCity, DateTime? SelectedDate)
         {
             var query = from f in db.Flights
                         select f;
@@ -68,6 +68,15 @@ namespace FinalProject.Controllers
                 query = query.Where(f => f.ArrivalCity == CityToDisplay.CityName);
             }
 
+            if (SelectedDate is null) //they chose all arrival cities
+            {
+                ViewBag.SelectedDate = "No date was selected";
+            }
+            else
+            {
+                query = query.Where(f => f.Date == SelectedDate);
+            }
+
             //Set up selected flights list based on query results
             List<Flight> SelectedFlights = query.ToList();
 
@@ -75,16 +84,30 @@ namespace FinalProject.Controllers
             return View("Index", SelectedFlights.OrderBy(f => f.DepartureCity));
         }
 
+        public ActionResult SearchDateResults(DateTime? SelectedDate)
+        {
+            var query = from f in db.Flights
+                        select f;
+            if (SelectedDate is null) //they chose all arrival cities
+            {
+                ViewBag.SelectedDate = "No date was selected";
+            }
+            else
+            {
+                query = query.Where(f => f.Date == SelectedDate);
+            }
+
+            //Set up selected flights list based on query results
+            List<Flight> SelectedFlights = query.ToList();
+
+            //send to view
+            return View("Index", SelectedFlights.OrderBy(f => f.DepartureCity));
+
+        }
 
 
-        
-
-
-
-
-
-        // GET: Flights/Details/5
-        public ActionResult Details(int? id)
+            // GET: Flights/Details/5
+            public ActionResult Details(int? id)
         {
             if (id == null)
             {

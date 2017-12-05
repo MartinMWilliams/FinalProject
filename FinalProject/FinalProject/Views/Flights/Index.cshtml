@@ -13,7 +13,13 @@
         @Html.ActionLink("Show All", "Index", null, new { @class="btn btn-default"})
     </p>
 }
-
+@using (Html.BeginForm("SearchDateResults", "Flights", FormMethod.Get))
+{
+    <p class="form-group">
+        Date: @Html.TextBox("SelectedDate", "yyyy-MM-DD", new { @class = "form-control" })
+        <input type="submit" value="Search" class="btn btn-default" />
+    </p>
+}
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
