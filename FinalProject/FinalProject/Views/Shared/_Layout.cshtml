@@ -28,16 +28,17 @@
                     <li><a class="navbar-brand" href="/Cities">Cities</a></li>
                     <li><a class="navbar-brand" href="/Flights">Flights</a></li>
                     <li><a class="navbar-brand" href="/RoleAdmin">Admins</a></li>
-                   
+                    <li><a class="navbar-brand" href="/Reservations">Reservations</a></li>
+
 
                     @if (Request.IsAuthenticated)
-                    {
-                        if (User.IsInRole("Admin"))
-                        {
-                            <li>@Html.ActionLink("Role Admin", "Index", "RoleAdmin", new { area = "" }, new { @class = "navbar-brand" })</li>
-                        }
+    {
+        if (User.IsInRole("Admin"))
+        {
+                <li>@Html.ActionLink("Role Admin", "Index", "RoleAdmin", new { area = "" }, new { @class = "navbar-brand" })</li>
+}
 
-                    }
+}
 
 
                 </ul>

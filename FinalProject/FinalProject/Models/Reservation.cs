@@ -7,8 +7,9 @@ namespace FinalProject.Models
 {
     public class Reservation
     {
-        //auto increment starting from 10000
         public Int32 ReservationID { get; set; }
+        //auto increment starting from 10000
+        public Int32 ReservationNumber { get; set; }
 
         //round trip or one way boolean
         //multiple city option to add another flight (boolean)
