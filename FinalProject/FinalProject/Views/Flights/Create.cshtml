@@ -13,44 +13,44 @@
 
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
+    <div class="form-group">
+            @Html.LabelFor(model => model.FlightNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m=>m.FlightNumber,  new {  @readonly = "readonly" })
+                @Html.ValidationMessageFor(model => model.FlightNumber, "", new { @class = "text-danger", })
+            </div>
+        </div>
     @*<div class="form-group">
         @Html.LabelFor(model => model.FlightNumber, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBoxFor(m=>m.FlightNumber,  new {  @readonly = "readonly" })
+            @Html.DisplayFor(model => model.FlightNumber, new { @class = "control-label col-md-2" })
             @Html.ValidationMessageFor(model => model.FlightNumber, "", new { @class = "text-danger", })
+
         </div>
     </div>*@
-    <div class="form-group">
-        @Html.LabelFor(model => model.FlightNumber, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">     
-            @Html.TextBox("FlightNumber", (int)ViewBag.FlightNumber, new { @readonly = "readonly" })
-            @Html.ValidationMessageFor(model => model.FlightNumber, "", new { @class = "text-danger", })
-        
-        </div>
-    </div>
 
     <div class="form-group">
-        @*<label class="control-label col-md-2">City2</label>*@
-        @Html.LabelFor(model => model.DepartureCity, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(m=>m.DepartureCity, (SelectList)ViewBag.AllCities, new { @class = "form-control" })
+            @Html.LabelFor(model => model.DepartureCityID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("DepartureCityID", (SelectList)ViewBag.AllDepartureCities, new { @class = "form-control" })
+            </div>
         </div>
-    </div>
 
-    <div class="form-group">
-        @*<label class="control-label col-md-2">City2</label>*@
-        @Html.LabelFor(model => model.ArrivalCity, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-            @Html.DropDownListFor(m => m.ArrivalCity, (SelectList)ViewBag.AllCities, new { @class = "form-control" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.ArrivalCityID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ArrivalCityID", (SelectList)ViewBag.AllArrivalCities, new { @class = "form-control" })
+            </div>
         </div>
-    </div>
+
+ 
 
     <div class="form-group">
         @*<label class="control-label col-md-2">City2</label>*@
         @Html.LabelFor(model => model.SelectedDays, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @*@Html.ListBox("AllDays", (MultiSelectList)ViewBag.AllDays, new { @class = "form-control" })*@
-            @Html.ListBoxFor(m=>m.SelectedDays, (MultiSelectList)ViewBag.AllDays, new { @class = "form-control" })
+            @Html.ListBoxFor(m => m.SelectedDays, (MultiSelectList)ViewBag.AllDays, new { @class = "form-control" })
         </div>
     </div>
 

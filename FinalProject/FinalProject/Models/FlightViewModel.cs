@@ -16,10 +16,16 @@ namespace FinalProject.Models
         public Int32 FlightNumber { get; set; }
 
         [Display(Name = "Departure City")]
-        public String DepartureCity { get; set; }
+        public Int32 DepartureCityID { get; set; }
+
+        [Display(Name = "Departure City")]
+        public String DepartureCityName { get; set; }
 
         [Display(Name = "Arrival City")]
-        public String ArrivalCity { get; set; }
+        public Int32 ArrivalCityID { get; set; }
+
+        [Display(Name = "Departure City")]
+        public String ArrivalCityName { get; set; }
 
         [Display(Name = "Base Fare")]
         public Decimal BaseFare { get; set; }
@@ -30,7 +36,25 @@ namespace FinalProject.Models
         public DateTime DepartureTime { get; set; }
 
         [Display(Name = "Days")]
-        public List<ListItem> SelectedDays { get; set; }
+        public List<String> SelectedDays { get; set; }
 
+    }
+
+    public class BruteForce1
+    {
+        [Display(Name = "Departure City")]
+        public Int32 DepartureCityID { get; set; }
+
+        [Display(Name = "Departure City")]
+        public String DepartureCityName { get; set; }
+    }
+
+    public class BruteForce2
+    {
+        [Display(Name = "Departure City")]
+        public Int32 ArrivalCityID { get; set; }
+
+        [Display(Name = "Departure City")]
+        public String ArrivalCityName { get; set; }
     }
 }
