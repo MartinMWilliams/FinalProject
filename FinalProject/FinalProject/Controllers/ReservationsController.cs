@@ -39,8 +39,11 @@ namespace FinalProject.Controllers
         // GET: Reservations/Create
         public ActionResult Create()
         {
+      
             ReservationViewModel reservation = new ReservationViewModel();
+
             int BiggestRes = 10000;
+
             if (db.Reservations.ToList().Any() == false)
             {
                 BiggestRes = 10000;
@@ -57,7 +60,7 @@ namespace FinalProject.Controllers
                     }
                 }
             }
-            return View();
+            return View(reservation);
         }
 
         // POST: Reservations/Create

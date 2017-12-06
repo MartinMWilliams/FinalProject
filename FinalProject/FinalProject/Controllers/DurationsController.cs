@@ -83,11 +83,12 @@ namespace FinalProject.Controllers
 
                 var set = new HashSet<City>(allCities);
                 var equals = set.SetEquals(selectedCities);
-                //if(equals == true)
-                //{
+                if (equals == true)
+                {
 
-                //    return RedirectToAction("Index", "Cities");
-                //}
+                    return RedirectToAction("Index", "Cities");
+                }
+
                 if (GetRemainingCities(SelectedCity1).ToList().Any() == false)
                 {
                     return RedirectToAction("Index", "Cities");
@@ -203,8 +204,9 @@ namespace FinalProject.Controllers
 
 
             List<City> citylist = AllCities.Except(SelectedCities).ToList();
-            
+
             SelectList RemainingCities = new SelectList(citylist, "CityID", "CityName");
+
             return RemainingCities;
         }
 
