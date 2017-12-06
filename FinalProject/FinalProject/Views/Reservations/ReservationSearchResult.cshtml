@@ -3,64 +3,102 @@
 @{
     ViewBag.Title = "ReservationSearchResult";
 }
-
-<h2>ReservationSearchResult</h2>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FlightNumber)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartureCity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DepartureTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ArrivalCity)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BaseFare)
-        </th>
-        <th>
-
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
+@using (Html.BeginForm("ReservationDetails", "Reservations", FormMethod.Get))
+{
+    <h2>ReservationSearchResult</h2>
+    <table class="table">
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FlightNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DepartureCity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DepartureTime)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ArrivalCity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BaseFare)
-            </td>
-            <td></td>
+            <th>
+                @Html.DisplayNameFor(model => model.FlightNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DepartureTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ArrivalCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BaseFare)
+            </th>
+            <th>
+
+            </th>
+            <th></th>
         </tr>
-    }
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartureCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartureTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArrivalCity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BaseFare)
+                </td>
+                <td></td>
+            </tr>
+        }
 
-<div class="form-group">
-    @*@Html.LabelFor(model => model.ArrivalCityID, htmlAttributes: new { @class = "control-label col-md-2" })*@
-    <div class="col-md-10">
-        @Html.DropDownList("FlightID", (SelectList)ViewBag.AvailableFlights, new { @class = "form-control" })
+    </table>
+
+    <div class="form-group">
+        @*@Html.LabelFor(model => model.ArrivalCityID, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.DropDownList("FlightID", (SelectList)ViewBag.AvailableFlights, new { @class = "form-control" })
+        </div>
     </div>
-</div>
+
+    <input type="submit" value="Input Details" class="btn btn-default" />
+}
+
+
+
+
+@*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.ReservationNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.ReservationNumber, new { @readonly = "readonly" })
+            @Html.ValidationMessageFor(model => model.ReservationNumber, "", new { @class = "text-danger", })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.RoundTrip, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.RoundTrip, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.AnotherFlight, new { @class = "col-md-2 control-label" })
+        <div class="col-md-10">
+            @Html.EditorFor(m => m.AnotherFlight, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.NumberOfFliers, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.NumberOfFliers, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.NumberOfFliers, "", new { @class = "text-danger" })
+        </div>
+    </div>*@

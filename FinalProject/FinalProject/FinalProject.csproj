@@ -297,6 +297,7 @@
     <Content Include="Views\ReservationFlightDetails\Edit.cshtml" />
     <Content Include="Views\ReservationFlightDetails\Index.cshtml" />
     <Content Include="Views\Reservations\ReservationSearchResult.cshtml" />
+    <Content Include="Views\Reservations\ReservationDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

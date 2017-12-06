@@ -1,13 +1,10 @@
 ﻿@model FinalProject.Models.ReservationViewModel
-
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "ReservationDetails";
 }
-
-<h2>Create</h2>
-@using (Html.BeginForm("ReservationSearchResults", "Reservations", FormMethod.Get))
+@using (Html.BeginForm("Create", "Reservations", FormMethod.Post))
 {
-<p class="form-group">
+    <h2>ReservationDetails</h2>
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(model => model.ReservationNumber, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -16,7 +13,7 @@
             @Html.ValidationMessageFor(model => model.ReservationNumber, "", new { @class = "text-danger", })
         </div>
     </div>
-@*
+
     <div class="form-group">
         @Html.LabelFor(m => m.RoundTrip, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
@@ -37,34 +34,23 @@
             @Html.EditorFor(model => model.NumberOfFliers, new { htmlAttributes = new { @class = "form-control" } })
             @Html.ValidationMessageFor(model => model.NumberOfFliers, "", new { @class = "text-danger" })
         </div>
+    </div>
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.Fliers, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.ListBoxFor(m => m.Fliers, (MultiSelectList)ViewBag.AllUsers, new { @class = "form-control" })
+        </div>
     </div>*@
 
     <div class="form-group">
-        @Html.LabelFor(model => model.DepartureDay, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.SelectedFlight, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.TextBox("SelectedDate", "yyyy-MM-DD", new { @class = "form-control" })
+            @Html.DisplayFor(model => model.SelectedFlight, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SelectedFlight, "", new { @class = "text-danger" })
         </div>
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(model => model.DepartureCity, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-        @Html.DropDownList("SelectedDepartureCity", (SelectList)ViewBag.AllCities, new { @class = "form-control" })
-        </div>
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.ArrivalCity, htmlAttributes: new { @class = "control-label col-md-2" })
-        <div class="col-md-10">
-        @Html.DropDownList("SelectedArrivalCity", (SelectList)ViewBag.AllCities, new { @class = "form-control" })
-        </div>
-    </div>
-
-    <input type="submit" value="Check Flights" class="btn btn-default" />
-</p>
+    <input type="submit" value="Book Flight" class="btn btn-default" />
 }
 
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

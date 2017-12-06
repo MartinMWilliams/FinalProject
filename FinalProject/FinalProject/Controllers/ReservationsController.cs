@@ -68,7 +68,7 @@ namespace FinalProject.Controllers
             return View(reservation);
         }
 
-        public ActionResult ReservationSearchResults(ReservationViewModel info, int SelectedDepartureCity, int SelectedArrivalCity, DateTime SelectedDate)
+        public ActionResult ReservationSearchResults( int SelectedDepartureCity, int SelectedArrivalCity, DateTime SelectedDate)
         {
             var query = from f in db.Flights
                         select f;
@@ -123,21 +123,61 @@ namespace FinalProject.Controllers
             return View("ReservationSearchResult", SelectedFlights.OrderBy(f => f.FlightNumber));
         }
 
+        public ActionResult ReservationDetails(int FlightID)
+        {
+            ReservationViewModel reservation = new ReservationViewModel();
+            reservation.SelectedFlight = db.Flights.Find(FlightID);
+            ViewBag.AllUsers = GetAllUsers();
+            int BiggestRes = 10000;
+
+
+            if (db.Reservations.ToList().Any() == false)
+            {
+                BiggestRes = 10000;
+                reservation.ReservationNumber = BiggestRes;
+            }
+            else
+            {
+                foreach (Reservation r in db.Reservations.ToList())
+                {
+                    if (r.ReservationNumber >= BiggestRes)
+                    {
+                        BiggestRes = r.ReservationNumber + 1;
+                        reservation.ReservationNumber = BiggestRes;
+                    }
+                }
+            }
+            if (reservation.ReservationNumber == 0)
+            {
+                reservation.ReservationNumber = BiggestRes;
+            }
+            return View(reservation);
+        }
+
         // POST: Reservations/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReservationID")] Reservation reservation)
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "ReservationID")] Reservation reservation)
+        public ActionResult Create(int ReservationNumber, bool RoundTrip, bool AnotherFlight, int NumberOfFliers, Flight SelectedFlight)
         {
-            if (ModelState.IsValid)
-            {
-                db.Reservations.Add(reservation);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+            ReservationViewModel FlightInfo = new ReservationViewModel();
+            FlightInfo.ReservationNumber = ReservationNumber;
+            FlightInfo.RoundTrip = RoundTrip;
+            FlightInfo.AnotherFlight = AnotherFlight;
+            FlightInfo.NumberOfFliers = NumberOfFliers;
+            FlightInfo.SelectedFlight = SelectedFlight;
 
-            return View(reservation);
+            return RedirectToAction("Create", "ReservationFlightDetails", FlightInfo);
+            //if (ModelState.IsValid)
+            //{
+            //    db.Reservations.Add(reservation);
+            //    db.SaveChanges();
+            //    return RedirectToAction("Index");
+            //}
+
+            return View();
         }
 
         // GET: Reservations/Edit/5
@@ -210,6 +250,18 @@ namespace FinalProject.Controllers
             return allCitieslist;
         }
 
+        public SelectList GetAllUsers()
+        {
+            var query = from c in db.Users
+                        orderby c.AdvantageNumber
+                        select c;
+
+            List<AppUser> allUsers= query.ToList();
+
+            SelectList allCitieslist = new SelectList(allUsers, "id", "AdvantageNumber");
+
+            return allCitieslist;
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

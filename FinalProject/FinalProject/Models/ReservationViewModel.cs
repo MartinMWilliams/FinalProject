@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -20,5 +21,12 @@ namespace FinalProject.Models
         public Int32 NumberOfFliers { get; set; }
 
         public DateTime DepartureDay { get; set; }
+
+        public Flight SelectedFlight { get; set; }
+
+        public List<AppUser> Fliers { get; set; }
     }
+
+    
+    
 }
