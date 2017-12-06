@@ -1,0 +1,66 @@
+﻿@model IEnumerable<FinalProject.Models.Flight>
+
+@{
+    ViewBag.Title = "ReservationSearchResult";
+}
+
+<h2>ReservationSearchResult</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalCity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BaseFare)
+        </th>
+        <th>
+
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DepartureTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ArrivalCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BaseFare)
+            </td>
+            <td></td>
+        </tr>
+    }
+
+</table>
+
+<div class="form-group">
+    @*@Html.LabelFor(model => model.ArrivalCityID, htmlAttributes: new { @class = "control-label col-md-2" })*@
+    <div class="col-md-10">
+        @Html.DropDownList("FlightID", (SelectList)ViewBag.AvailableFlights, new { @class = "form-control" })
+    </div>
+</div>

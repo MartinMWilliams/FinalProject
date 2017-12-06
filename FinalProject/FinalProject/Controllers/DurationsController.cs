@@ -40,8 +40,8 @@ namespace FinalProject.Controllers
         public ActionResult Create(City city)
         {
             ViewBag.SelectedCity = GetSelectedCity(city);
-            //ViewBag.AllCities = GetAllCities(city);
-            ViewBag.RemainingCities = GetRemainingCities(city);
+            ViewBag.AllCities = GetAllCities();
+            //ViewBag.RemainingCities = GetRemainingCities(city);
             return View();
         }
 
@@ -81,18 +81,18 @@ namespace FinalProject.Controllers
                 db.Durations.Add(duration2);
                 db.SaveChanges();
 
-                var set = new HashSet<City>(allCities);
-                var equals = set.SetEquals(selectedCities);
-                if (equals == true)
-                {
+                //var set = new HashSet<City>(allCities);
+                //var equals = set.SetEquals(selectedCities);
+                //if (equals == true)
+                //{
 
-                    return RedirectToAction("Index", "Cities");
-                }
+                //    return RedirectToAction("Index", "Cities");
+                //}
 
-                if (GetRemainingCities(SelectedCity1).ToList().Any() == false)
-                {
-                    return RedirectToAction("Index", "Cities");
-                }
+                //if (GetRemainingCities(SelectedCity1).ToList().Any() == false)
+                //{
+                //    return RedirectToAction("Index", "Cities");
+                //}
 
                 return RedirectToAction("Create", "Durations",SelectedCity1);
             }

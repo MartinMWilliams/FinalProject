@@ -39,10 +39,11 @@ namespace FinalProject.Controllers
         // GET: Reservations/Create
         public ActionResult Create()
         {
-      
+            ViewBag.AllCities = GetAllCities();
             ReservationViewModel reservation = new ReservationViewModel();
 
             int BiggestRes = 10000;
+
 
             if (db.Reservations.ToList().Any() == false)
             {
@@ -60,7 +61,66 @@ namespace FinalProject.Controllers
                     }
                 }
             }
+            if (reservation.ReservationNumber == 0)
+            {
+                reservation.ReservationNumber = BiggestRes;
+            }
             return View(reservation);
+        }
+
+        public ActionResult ReservationSearchResults(ReservationViewModel info, int SelectedDepartureCity, int SelectedArrivalCity, DateTime SelectedDate)
+        {
+            var query = from f in db.Flights
+                        select f;
+
+            //Drop down list for Departure City
+            if (SelectedDepartureCity == 0) //they chose all departure cities
+            {
+                ViewBag.SelectedDepartureCity = "No departure city was selected";
+            }
+            else //city was chosen
+            {
+                //Set the AllCities list from the GetCities method that is in the City model?
+                List<City> AllCities = db.Cities.ToList();
+                City CityToDisplay = AllCities.Find(c => c.CityID == SelectedDepartureCity);
+                ViewBag.SelectedDepartureCity = "The selected departure city is " + CityToDisplay.CityName;
+
+                //Query the results based on the selected departure city
+                query = query.Where(f => f.DepartureCity == CityToDisplay.CityName);
+            }
+
+            //Drope down list for Arrival Citty
+            if (SelectedArrivalCity == 0) //they chose all arrival cities
+            {
+                ViewBag.SelectedArrivalCity = "No arrival city was selected";
+            }
+            else //city was chosen
+            {
+                //Set the AllCities list from the GetCities method that is in the City model?
+                List<City> AllCities = db.Cities.ToList();
+                City CityToDisplay = AllCities.Find(c => c.CityID == SelectedArrivalCity);
+                ViewBag.SelectedArrivalCity = "The selected arrival city is " + CityToDisplay.CityName;
+
+                //Query the results based on the selected Arrival City
+                query = query.Where(f => f.ArrivalCity == CityToDisplay.CityName);
+            } 
+
+            //if (SelectedDate is null) //they chose all arrival cities
+            //{
+            //    ViewBag.SelectedDate = "No date was selected";
+            //}
+            
+            
+                query = query.Where(f => f.Date == SelectedDate);
+            
+
+            //Set up selected flights list based on query results
+            List<Flight> SelectedFlights = query.ToList();
+
+            SelectList FlightDropDown = new SelectList(SelectedFlights, "FlightID", "FlightNumber");
+            ViewBag.AvailableFlights = FlightDropDown;
+            //send to view
+            return View("ReservationSearchResult", SelectedFlights.OrderBy(f => f.FlightNumber));
         }
 
         // POST: Reservations/Create
@@ -135,6 +195,19 @@ namespace FinalProject.Controllers
             db.Reservations.Remove(reservation);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public SelectList GetAllCities()
+        {
+            var query = from c in db.Cities
+                        orderby c.CityName
+                        select c;
+
+            List<City> allCities = query.ToList();
+
+            SelectList allCitieslist = new SelectList(allCities, "CityID", "CityName");
+
+            return allCitieslist;
         }
 
         protected override void Dispose(bool disposing)
