@@ -127,6 +127,9 @@ namespace FinalProject.Controllers
         {
             ReservationViewModel reservation = new ReservationViewModel();
             reservation.SelectedFlight = db.Flights.Find(FlightID);
+            //ViewBag.SelectedFlight = reservation.SelectedFlight;
+            ViewBag.SelectedFlight = GetFlight(reservation);
+
             ViewBag.AllUsers = GetAllUsers();
             int BiggestRes = 10000;
 
@@ -160,22 +163,26 @@ namespace FinalProject.Controllers
         [HttpPost]
         //[ValidateAntiForgeryToken]
         //public ActionResult Create([Bind(Include = "ReservationID")] Reservation reservation)
-        public ActionResult Create(int ReservationNumber, bool RoundTrip, bool AnotherFlight, int NumberOfFliers, Flight SelectedFlight)
+        public ActionResult Create(int ReservationNumber, bool RoundTrip, bool AnotherFlight, int NumberOfFliers, int FlightID)//Flight SelectedFlight
         {
+            Reservation Reservation = new Reservation();
+            Reservation.ReservationNumber = ReservationNumber;
+
             ReservationViewModel FlightInfo = new ReservationViewModel();
             FlightInfo.ReservationNumber = ReservationNumber;
             FlightInfo.RoundTrip = RoundTrip;
             FlightInfo.AnotherFlight = AnotherFlight;
             FlightInfo.NumberOfFliers = NumberOfFliers;
-            FlightInfo.SelectedFlight = SelectedFlight;
+            //FlightInfo.SelectedFlight = SelectedFlight;
 
+            if (ModelState.IsValid)
+            {
+                db.Reservations.Add(Reservation);
+                db.SaveChanges();
+                //return RedirectToAction("Index");
+            }
             return RedirectToAction("Create", "ReservationFlightDetails", FlightInfo);
-            //if (ModelState.IsValid)
-            //{
-            //    db.Reservations.Add(reservation);
-            //    db.SaveChanges();
-            //    return RedirectToAction("Index");
-            //}
+            
 
             return View();
         }
@@ -259,6 +266,19 @@ namespace FinalProject.Controllers
             List<AppUser> allUsers= query.ToList();
 
             SelectList allCitieslist = new SelectList(allUsers, "id", "AdvantageNumber");
+
+            return allCitieslist;
+        }
+
+        public SelectList GetFlight(ReservationViewModel input)
+        {
+            var query = from f in db.Flights
+                        where f == input.SelectedFlight
+                        select f;
+
+            List<Flight> flight = query.ToList();
+
+            SelectList allCitieslist = new SelectList(flight, "FlightID", "FlightNumber");
 
             return allCitieslist;
         }

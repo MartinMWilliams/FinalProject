@@ -37,8 +37,14 @@ namespace FinalProject.Controllers
         }
 
         // GET: ReservationFlightDetails/Create
-        public ActionResult Create()
+        public ActionResult Create(ReservationViewModel FlightInfo)
         {
+            //ReservationFlightDetail flightdetail = new ReservationFlightDetail();
+            ViewBag.SelectedFlight = FlightInfo.SelectedFlight;
+            ViewBag.ReservationNumber = FlightInfo.ReservationNumber;
+            ViewBag.AllUsers = GetAllUsers();
+            //flightdetail.Flight = FlightInfo.SelectedFlight;
+            //flightdetail.Reservation = db.Reservations.First(r => r.ReservationNumber == FlightInfo.ReservationNumber);
             return View();
         }
 
@@ -114,6 +120,19 @@ namespace FinalProject.Controllers
             db.ReservationFlightDetails.Remove(reservationFlightDetail);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public SelectList GetAllUsers()
+        {
+            var query = from c in db.Users
+                        orderby c.AdvantageNumber
+                        select c;
+
+            List<AppUser> allUsers = query.ToList();
+
+            SelectList allCitieslist = new SelectList(allUsers, "id", "AdvantageNumber");
+
+            return allCitieslist;
         }
 
         protected override void Dispose(bool disposing)

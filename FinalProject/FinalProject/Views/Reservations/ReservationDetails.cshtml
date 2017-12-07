@@ -37,20 +37,33 @@
     </div>
 
     @*<div class="form-group">
-        @Html.LabelFor(model => model.Fliers, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.Fliers, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBoxFor(m => m.Fliers, (MultiSelectList)ViewBag.AllUsers, new { @class = "form-control" })
+            </div>
+        </div>*@
+
+    @*<div class="form-group">
+            @Html.LabelFor(model => model.SelectedFlight, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayFor(model => model.SelectedFlight, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SelectedFlight, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+    @*<div class="form-group">
+        @Html.LabelFor(model => model.Flight, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.ListBoxFor(m => m.Fliers, (MultiSelectList)ViewBag.AllUsers, new { @class = "form-control" })
+            @Html.DropDownList("FlightID", (SelectList)ViewBag.SelectedFlight, new { @class = "form-control" })
         </div>
     </div>*@
 
     <div class="form-group">
         @Html.LabelFor(model => model.SelectedFlight, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
-            @Html.DisplayFor(model => model.SelectedFlight, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.SelectedFlight, "", new { @class = "text-danger" })
+            @Html.DropDownList("FlightID", (SelectList)ViewBag.SelectedFlight, new { @class = "form-control" })
         </div>
     </div>
-
     <input type="submit" value="Book Flight" class="btn btn-default" />
 }
 
