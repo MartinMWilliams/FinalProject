@@ -228,18 +228,6 @@ namespace FinalProject.Controllers
 
                 
                //TODO:  Once you get roles working, you may want to add users to roles upon creation
-               if (model.EmployeeType == EmpType.Agent)
-                    {
-                    await UserManager.AddToRoleAsync(user.Id, "Agents");
-                }
-                if (model.EmployeeType == EmpType.Manager)
-                {
-                    await UserManager.AddToRoleAsync(user.Id, "Managers");
-                }
-                else
-                {
-                    await UserManager.AddToRoleAsync(user.Id, "Crew");
-                }
                 // --OR--
                 // await UserManager.AddToRoleAsync(user.Id, "Employee");
 
