@@ -1,0 +1,42 @@
+﻿@model FinalProject.Models.FlightCrew
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FlightCrew</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Pilot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pilot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoPilot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoPilot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CabinCrew)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CabinCrew)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FlightCrewID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

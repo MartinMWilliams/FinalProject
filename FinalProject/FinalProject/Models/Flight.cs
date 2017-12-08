@@ -44,6 +44,14 @@ namespace FinalProject.Models
         [Display(Name = "Duration Info")]
         public virtual Duration DurationInfo { get; set; }
 
+        public string FlightNumberDate
+        {
+            get
+            {
+                return String.Format("{0} {1}", FlightNumber, Date);
+            }
+        }
+
         //Navigation property for ReservationFlightDetail
         public virtual List<ReservationFlightDetail> ReservationFlightDetails { get; set; }
     }
