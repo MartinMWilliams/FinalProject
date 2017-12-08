@@ -1,0 +1,79 @@
+﻿@model FinalProject.Models.ReservationFlightDetail
+
+@{
+    ViewBag.Title = "Ticket Details";
+}
+
+<h2>View</h2>
+
+@using (Html.BeginForm("Create", "ReservationFlightDetails", FormMethod.Post))
+{
+    <h2>ReservationDetails</h2>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.SeatAssignment, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.SeatAssignment, new { @readonly = "readonly" })
+            @Html.ValidationMessageFor(model => model.SeatAssignment, "", new { @class = "text-danger", })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Fare, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Fare, new { @readonly = "readonly" })
+            @Html.ValidationMessageFor(model => model.Fare, "", new { @class = "text-danger", })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Reservation, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("ReservationID", (SelectList)ViewBag.Reservation, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Flight, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("FlightID", (SelectList)ViewBag.Flight, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.User, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("id", (SelectList)ViewBag.User, new { @class = "form-control" })
+        </div>
+    </div>
+    @*<div class="form-group">
+            @Html.LabelFor(m => m.RoundTrip, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.RoundTrip, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.AnotherFlight, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.AnotherFlight, new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NumberOfFliers, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NumberOfFliers, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NumberOfFliers, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SelectedFlight, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FlightID", (SelectList)ViewBag.SelectedFlight, new { @class = "form-control" })
+            </div>
+        </div>*@
+    <input type="submit" value="Book Flight" class="btn btn-default" />
+}

@@ -18,7 +18,7 @@ namespace FinalProject.Controllers
         // GET: Reservations
         public ActionResult Index()
         {
-            return View(db.Reservations.ToList());
+             return View(db.Reservations.ToList());
         }
 
         // GET: Reservations/Details/5

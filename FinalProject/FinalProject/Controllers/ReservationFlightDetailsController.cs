@@ -55,30 +55,52 @@ namespace FinalProject.Controllers
 
         public ActionResult TicketDetails(int ReservationNumber, Seats SeatAssignment, int Fare, int FlightID, String id )
         {
-            //ReservationFlightDetail ticket = new ReservationFlightDetail();
-            //ticket.Reservation = db.Reservations.First(r => r.ReservationNumber == ReservationNumber);
-            //ticket.Flight = db.Flights.First(f => f.FlightID == FlightID);
-            //ticket.User = db.Users.First(u => u.Id == id);
-            //ticket.SeatAssignment = SeatAssignment;
-            
-            return View();
+            ReservationFlightDetail ticket = new ReservationFlightDetail();
+
+            ticket.Reservation = db.Reservations.First(r => r.ReservationNumber == ReservationNumber);
+            ticket.Flight = db.Flights.First(f => f.FlightID == FlightID);
+            ticket.User = db.Users.First(u => u.Id == id);
+            ticket.SeatAssignment = SeatAssignment;
+
+
+            ViewBag.Reservation = GetReservation(ReservationNumber);
+            ViewBag.Flight = GetFlight(FlightID);
+            ViewBag.User = GetUser(id);
+            return View(ticket);
         }
 
         // POST: ReservationFlightDetails/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ReservationFlightDetailID,SeatAssignment,Fare")] ReservationFlightDetail reservationFlightDetail)
+        //[ValidateAntiForgeryToken]
+       // public ActionResult Create([Bind(Include = "ReservationFlightDetailID,SeatAssignment,Fare,Reservation,Flight,User")] ReservationFlightDetail reservationFlightDetail)
+        public ActionResult Create(Seats SeatAssignment, Decimal Fare, int ReservationID, int FlightID, String id)
         {
+            ReservationFlightDetail reservationFlightDetail = new ReservationFlightDetail();
+            reservationFlightDetail.SeatAssignment = SeatAssignment;
+            reservationFlightDetail.Fare = Fare;
+            reservationFlightDetail.Reservation = db.Reservations.First(r => r.ReservationID == ReservationID);
+            reservationFlightDetail.Flight = db.Flights.First(f => f.FlightID == FlightID);
+            reservationFlightDetail.User = db.Users.First(u => u.Id == id);
+
+
+            ReservationViewModel FlightInfo = new ReservationViewModel();
+            FlightInfo.ReservationNumber = db.Reservations.First(r=>r.ReservationID == ReservationID).ReservationNumber;
+            //FlightInfo.RoundTrip = RoundTrip;
+            //FlightInfo.AnotherFlight = AnotherFlight;
+            //FlightInfo.NumberOfFliers = NumberOfFliers;
+            FlightInfo.FlightID = FlightID;
+
             if (ModelState.IsValid)
             {
                 db.ReservationFlightDetails.Add(reservationFlightDetail);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Create",FlightInfo);
             }
 
-            return View(reservationFlightDetail);
+            //return View(reservationFlightDetail);
+            return View();
         }
 
         // GET: ReservationFlightDetails/Edit/5
@@ -186,7 +208,7 @@ namespace FinalProject.Controllers
 
             List<Seats> AvailableSeats = AllSeats.Except(TakenSeats).ToList();
 
-            SelectList allCitieslist = new SelectList(AvailableSeats, "key", "value");
+            SelectList allCitieslist = new SelectList(AvailableSeats);// "value", "text"
 
             return allCitieslist;
         }
@@ -212,6 +234,33 @@ namespace FinalProject.Controllers
             return allCitieslist;
         }
 
+        public SelectList GetUser(String id)
+        {
+            var query = from f in db.Users
+                        where f.Id == id
+                        select f;
+
+            List<AppUser> flight = query.ToList<AppUser>();
+
+
+            SelectList allCitieslist = new SelectList(flight, "id", "AdvantageNumber");
+
+            return allCitieslist;
+        }
+
+        public SelectList GetReservation(int ReservationNumber)
+        {
+            var query = from f in db.Reservations
+                        where f.ReservationNumber == ReservationNumber
+                        select f;
+           
+            List<Reservation> flight = query.ToList<Reservation>();
+
+
+            SelectList allCitieslist = new SelectList(flight, "ReservationID", "ReservationNumber");
+
+            return allCitieslist;
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

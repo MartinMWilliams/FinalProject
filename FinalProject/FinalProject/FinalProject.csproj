@@ -321,6 +321,7 @@
     <Content Include="Views\FlightCrews\Details.cshtml" />
     <Content Include="Views\FlightCrews\Edit.cshtml" />
     <Content Include="Views\FlightCrews\Index.cshtml" />
+    <Content Include="Views\ReservationFlightDetails\TicketDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
