@@ -47,7 +47,7 @@
             @Html.DisplayNameFor(model => model.BaseFare)
         </th>
         <th>
-           
+           @Html.DisplayNameFor(model => model.HasDeparted)
         </th>
         <th></th>
     </tr>
@@ -73,7 +73,7 @@
             @Html.DisplayFor(modelItem => item.BaseFare)
         </td>
         <td>
-        
+            @Html.DisplayFor(modelItem => item.HasDeparted)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.FlightID }) |

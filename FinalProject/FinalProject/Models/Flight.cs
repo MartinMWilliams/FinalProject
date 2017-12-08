@@ -41,6 +41,7 @@ namespace FinalProject.Models
         [Display(Name = "Arrival Time")]
         public DateTime ArrivalTime { get; set; }
 
+        [Display(Name = "Has Departed")]
         public Boolean HasDeparted { get; set;}
 
         [Display(Name = "Duration Info")]
