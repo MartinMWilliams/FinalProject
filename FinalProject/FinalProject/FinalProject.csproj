@@ -282,6 +282,10 @@
     <Compile Include="Migrations\201712080453419_wassup.Designer.cs">
       <DependentUpon>201712080453419_wassup.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712080525341_butwhy.cs" />
+    <Compile Include="Migrations\201712080525341_butwhy.Designer.cs">
+      <DependentUpon>201712080525341_butwhy.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -393,6 +397,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712080453419_wassup.resx">
       <DependentUpon>201712080453419_wassup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080525341_butwhy.resx">
+      <DependentUpon>201712080525341_butwhy.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

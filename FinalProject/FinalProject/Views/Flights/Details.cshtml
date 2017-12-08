@@ -75,12 +75,10 @@
         <th>First Name</th>
         <th>MI</th>
         <th>Last Name</th>
+        <th>Advantage Number</th>
         <th>Seat Assignment</th>
         <th>Fare</th>
-        <th>Reservation ID</th>
         <th>Reservation Number</th>
-        <th>Total Fare</th>
-        <th>Advantage Number</th>
 
     </tr>
     @foreach (var item in Model.ReservationFlightDetails)
@@ -89,12 +87,10 @@
         <td>@Html.DisplayFor(modelItem => item.User.FirstName)</td>
         <td>@Html.DisplayFor(modelItem => item.User.MiddleInitial)</td>
         <td>@Html.DisplayFor(modelItem => item.User.LastName)</td>
+        <td>@Html.DisplayFor(modelItem => item.User.AdvantageNumber)</td>
         <td>@Html.DisplayFor(modelItem => item.SeatAssignment)</td>
         <td>@Html.DisplayFor(modelItem => item.Fare)</td>
-        <td>@Html.DisplayFor(modelItem => item.Reservation.ReservationID)</td>
         <td>@Html.DisplayFor(modelItem => item.Reservation.ReservationNumber)</td>
-        <td>@Html.DisplayFor(modelItem => item.Reservation.TotalFare)</td>
-        <td>@Html.DisplayFor(modelItem => item.User.AdvantageNumber)</td>
     </tr>
     }
 </table>
