@@ -1,0 +1,39 @@
+﻿@{
+    /**/
+
+    ViewBag.Title = "SelectFlightToDepart";
+}
+
+@using (Html.BeginForm("DepartFlight", "Flights"))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <label class="control-label col-md-2">Flight</label>
+        <div class="col-md-10">
+            @Html.DropDownList("FlightID", (SelectList)ViewBag.SelectedFlight, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-2">Fliers</label>
+        <div class="col-md-10">
+            @Html.ListBox("id", (SelectList)ViewBag.Fliers, new { @class = "form-control" })
+        </div>
+    </div>
+</div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Submit" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
