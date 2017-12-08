@@ -18,7 +18,8 @@ namespace FinalProject.Models
         public DateTime EndDate { get; set; }
 
         //cities
-        public String City { get; set; }
+        public String CityID { get; set; }
+        public String CityName { get; set; }
 
         //routes
         public Int32 DepartureCityID { get; set; }

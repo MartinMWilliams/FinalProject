@@ -372,6 +372,7 @@
     <Content Include="Views\Flights\SelectFlightToDepart.cshtml" />
     <Content Include="Views\Flights\SelectFliers.cshtml" />
     <Content Include="Views\Reports\Index.cshtml" />
+    <Content Include="Views\Reports\SearchResults.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

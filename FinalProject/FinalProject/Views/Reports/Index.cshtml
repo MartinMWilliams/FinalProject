@@ -12,17 +12,6 @@
 {
 <p class="form-group">
 
-
-    @*Departure City: @Html.DropDownList("DepartureCityID", (SelectList)ViewBag.DepartureCities, new { @class = "form-control" })
-
-
-        Arrival City: @Html.DropDownList("ArrivalCityID", (SelectList)ViewBag.ArrivalCities, new { @class = "form-control" })
-
-        Date: @Html.TextBox("SelectedDate", "yyyy-MM-DD", new { @class = "form-control" })
-
-        Date: @Html.TextBox("SelectedDate", "yyyy-MM-DD", new { @class = "form-control" })*@
-
-
     <div class="form-group">
         @Html.LabelFor(model => model.DepartureCityName, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
@@ -52,7 +41,7 @@
     </div>
 
     <div class="form-group">
-        @Html.LabelFor(model => model.DepartureCityName, htmlAttributes: new { @class = "control-label col-md-2" })
+        @Html.LabelFor(model => model.CityName, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownList("CityID", (SelectList)ViewBag.AllCities, new { @class = "form-control" })
         </div>

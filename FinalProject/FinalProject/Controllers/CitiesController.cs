@@ -36,6 +36,7 @@ namespace FinalProject.Controllers
             return View(city);
         }
 
+        [Authorize(Roles = "Managers")]
         // GET: Cities/Create
         public ActionResult Create()
         {
@@ -69,6 +70,7 @@ namespace FinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Managers")]
         public ActionResult Create([Bind(Include = "CityID,CityNumber,CityName,AirportCode, State")] City city)
         {
             if (ModelState.IsValid)
@@ -86,6 +88,7 @@ namespace FinalProject.Controllers
             return View(city);
         }
 
+        [Authorize(Roles = "Managers")]
         // GET: Cities/Edit/5
         public ActionResult Edit(int? id)
         {
@@ -106,6 +109,7 @@ namespace FinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Managers")]
         public ActionResult Edit([Bind(Include = "CityID,CityNumber,CityName,AirportCode")] City city)
         {
             if (ModelState.IsValid)
@@ -117,6 +121,7 @@ namespace FinalProject.Controllers
             return View(city);
         }
 
+        [Authorize(Roles = "Managers")]
         // GET: Cities/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -132,6 +137,7 @@ namespace FinalProject.Controllers
             return View(city);
         }
 
+        [Authorize(Roles = "Managers")]
         // POST: Cities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

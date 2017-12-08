@@ -18,7 +18,7 @@ namespace FinalProject.Controllers
     //[Authorize(Roles = "Admin")]
     public class RoleAdminController : Controller
     {
-        //
+        //[Authorize(Roles = "Managers")]
         // GET: /RoleAdmin/
         public ActionResult Index()
         {

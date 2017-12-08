@@ -190,6 +190,7 @@ namespace FinalProject.Controllers
             return View(model);
         }
 
+        //[Authorize(Roles = "Managers")]
         [AllowAnonymous]
         public ActionResult RegisterEmployee()
         {

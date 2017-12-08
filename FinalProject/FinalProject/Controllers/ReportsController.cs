@@ -18,6 +18,7 @@ namespace FinalProject.Controllers
         private AppDbContext db = new AppDbContext();
 
         // GET: Reports
+        [Authorize(Roles = "Managers")]
         public ActionResult Index()
         {
             ViewBag.DepartureCities = GetDepartureCities();
@@ -37,43 +38,95 @@ namespace FinalProject.Controllers
         //search results
         public ActionResult SearchResults(int DepartureCityID, int ArrivalCityID, DateTime? SelectedStartDate, DateTime? SelectedEndDate, int CityID)
         {
-            var query = from r in db.ReservationFlightDetails
-                        select r;
+            City DepartureCity = db.Cities.First(c => c.CityID == DepartureCityID);
+            City ArrivalCity = db.Cities.First(c => c.CityID == ArrivalCityID);
 
-            //Drop down list for Departure City
-            if (DepartureCityID == 0) //they chose all departure cities
-            {
-                ViewBag.SelectedDepartureCity = "No departure city was selected";
-            }
-            else //city was chosen
-            {
-                //Set the AllCities list from the GetCities method that is in the City model?
-                List<City> AllCities = db.Cities.ToList();
-                City CityToDisplay = AllCities.Find(c => c.CityID == DepartureCityID);
-                ViewBag.SelectedDepartureCity = "The selected departure city is " + CityToDisplay.CityName;
+            City SelectedCity = db.Cities.First(c => c.CityID == CityID);
 
-                //Query the results based on the selected departure city
-                query = query.Where(r => r.Flight.DepartureCity == CityToDisplay.CityName);
-            }
+            ReportsViewModel Results = new ReportsViewModel();
 
-            //Drope down list for Arrival Citty
-            if (ArrivalCityID == 0) //they chose all arrival cities
-            {
-                ViewBag.SelectedArrivalCity = "No arrival city was selected";
-            }
-            else //city was chosen
-            {
-                //Set the AllCities list from the GetCities method that is in the City model?
-                List<City> AllCities = db.Cities.ToList();
-                City CityToDisplay = AllCities.Find(c => c.CityID == ArrivalCityID);
-                ViewBag.SelectedArrivalCity = "The selected arrival city is " + CityToDisplay.CityName;
+            int totalseats = new int();
+            Decimal totalrevenue = new Decimal();
 
-                //Query the results based on the selected Arrival City
-                query = query.Where(r => r.Flight.ArrivalCity == CityToDisplay.CityName);
+            var query = from f in db.Flights
+                        where f.DepartureCity == DepartureCity.CityName
+                        select f;
+
+            query = query.Where(f=>f.ArrivalCity == ArrivalCity.CityName);
+
+            query = query.Where(f => (f.Date <= SelectedEndDate) && (f.Date >= SelectedEndDate));
+
+            query = query.Where(f => (f.DepartureCity == SelectedCity.CityName) || (f.ArrivalCity == SelectedCity.CityName));
+
+            foreach (Flight f in query)
+            {
+                foreach (ReservationFlightDetail ticket in f.ReservationFlightDetails)
+                {
+                    if (f.HasDeparted == true)
+                    {
+                        totalrevenue += ticket.Fare;
+                    }
+
+                    totalseats += 1;
+                }
             }
 
-            return View();
+            Results.TotalRevenue = totalrevenue;
+            Results.TotalSeatsSold = totalseats;
+               
+            //var query = from r in db.ReservationFlightDetails
+            //            select r;
+
+            ////Drop down list for Departure City
+            //if (DepartureCityID == 0) //they chose all departure cities
+            //{
+            //    ViewBag.SelectedDepartureCity = "No departure city was selected";
+            //}
+            //else //city was chosen
+            //{
+            //    //Set the AllCities list from the GetCities method that is in the City model?
+            //    List<City> AllCities = db.Cities.ToList();
+            //    City CityToDisplay = AllCities.Find(c => c.CityID == DepartureCityID);
+            //    ViewBag.SelectedDepartureCity = "The selected departure city is " + CityToDisplay.CityName;
+
+            //    //Query the results based on the selected departure city
+            //    query = query.Where(r => r.Flight.DepartureCity == CityToDisplay.CityName);
+            //}
+
+            ////Drop down list for all cities
+            //if (CityID == 0) //they chose all cities
+            //{
+            //    ViewBag.SelectedCity = "No city was selected";
+            //}
+            //else //city was chosen
+            //{
+            //    List<City> AllCities = db.Cities.ToList();
+            //    City CityToDisplay = AllCities.Find(c => c.CityID == CityID);
+            //    ViewBag.SelectedCity = "The selected city is " + CityToDisplay.CityName;
+
+            //    //Query the results based on the selected city
+            //    query = query.Where(r => r.Flight.DepartureCity == CityToDisplay.CityName || r.Flight.ArrivalCity == CityToDisplay.CityName);
+            //}
+
+            ////Drop down list for Arrival City
+            //if (ArrivalCityID == 0) //they chose all arrival cities
+            //{
+            //    ViewBag.SelectedArrivalCity = "No arrival city was selected";
+            //}
+            //else //city was chosen
+            //{
+            //    //Set the AllCities list from the GetCities method that is in the City model?
+            //    List<City> AllCities = db.Cities.ToList();
+            //    City CityToDisplay = AllCities.Find(c => c.CityID == ArrivalCityID);
+            //    ViewBag.SelectedArrivalCity = "The selected arrival city is " + CityToDisplay.CityName;
+
+            //    //Query the results based on the selected Arrival City
+            //    query = query.Where(r => r.Flight.ArrivalCity == CityToDisplay.CityName);
+            //}
+          
+            return View(Results);
         }
+
 
         public SelectList GetAllCities()
         {

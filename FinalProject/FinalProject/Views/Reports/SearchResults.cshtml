@@ -1,0 +1,20 @@
+﻿@model FinalProject.Models.ReportsViewModel
+@using FinalProject.Controllers
+@{
+    ViewBag.Title = "SearchResults";
+}
+
+<h2>Search Results</h2>
+
+<dt>
+    @Html.DisplayNameFor(model => model.TotalRevenue)
+</dt>
+<dd>
+    @Html.DisplayFor(model => model.TotalRevenue)
+</dd>
+<dt>
+    @Html.DisplayNameFor(model => model.TotalSeatsSold)
+</dt>
+<dd>
+    @Html.DisplayFor(model => model.TotalSeatsSold)
+</dd>
