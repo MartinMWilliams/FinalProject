@@ -61,7 +61,7 @@ namespace FinalProject.Controllers
             ticket.Flight = db.Flights.First(f => f.FlightID == FlightID);
             ticket.User = db.Users.First(u => u.Id == id);
             ticket.SeatAssignment = SeatAssignment;
-
+            //ticket.Fare = CalculateFare(FlightID, id, SeatAssignment,Fare);
 
             ViewBag.Reservation = GetReservation(ReservationNumber);
             ViewBag.Flight = GetFlight(FlightID);
@@ -269,5 +269,37 @@ namespace FinalProject.Controllers
             }
             base.Dispose(disposing);
         }
+
+        //public Decimal CalculateFare(int FlightID, String id, Seats SeatAssignment, int fare)
+        //{
+        //    Flight flight = db.Flights.First(f => f.FlightID == FlightID);
+        //    AppUser flier = db.Users.First(u => u.Id == id);
+        //    Seats seatassignment = SeatAssignment;
+        //    var today = DateTime.Today;
+        //    var age = today.Year - flier.DateofBirth.Year;
+
+        //    if (((flight.Date - today).TotalDays / 7) >= 2)
+        //    {
+        //        fare = (decimal)Convert.ToDecimal(fare);
+        //        fare = fare * .9;
+        //    }
+
+        //    Decimal newfare = new Decimal();
+
+            
+
+        //    if (age >= 65 && seatassignment != Seats.OneA && seatassignment != Seats.OneB && seatassignment != Seats.TwoA && seatassignment != Seats.TwoB)
+        //    {
+        //        newfare = fare * .9m; //m is for magic!!!!
+        //    }
+        //    if (age >= 3 && age <= 12 && seatassignment != Seats.OneA && seatassignment != Seats.OneB && seatassignment != Seats.TwoA && seatassignment != Seats.TwoB)
+        //    {
+        //        newfare = fare * .85m;
+        //    }
+        //    if (seatassignment == Seats.OneA || seatassignment == Seats.OneB || seatassignment == Seats.TwoA || seatassignment == Seats.TwoB)
+        //    {
+        //        newfare = fare * 1.2m;
+        //    }
+        //}
     }
 }
