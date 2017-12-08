@@ -20,6 +20,12 @@
         <th>
             @Html.DisplayNameFor(model => model.CabinCrew)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flight.FlightNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Flight.Date)
+        </th>
         <th></th>
     </tr>
 
@@ -33,6 +39,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CabinCrew)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Flight.FlightNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Flight.Date)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.FlightCrewID }) |
