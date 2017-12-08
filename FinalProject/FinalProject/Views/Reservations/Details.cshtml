@@ -10,8 +10,48 @@
     <h4>Reservation</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ReservationID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ReservationID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ReservationNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ReservationNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalFare)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TotalFare)
+        </dd>
     </dl>
 </div>
+
+<h4>Reservation Details</h4>
+<table class="table table-bordered">
+    <tr>
+        <th>UserName</th>
+        <th>First Name</th>
+        <th>MI</th>
+        <th>Last Name</th>
+        <th>Advantage Number</th>
+
+    </tr>
+    @foreach (var item in Model.ReservationFlightDetails)
+    {
+        <tr>
+            <td>@Html.DisplayFor(modelItem => item.User.UserName)</td>
+            <td>@Html.DisplayFor(modelItem => item.User.FirstName)</td>
+            <td>@Html.DisplayFor(modelItem => item.User.MiddleInitial)</td>
+            <td>@Html.DisplayFor(modelItem => item.User.LastName)</td>
+            <td>@Html.DisplayFor(modelItem => item.User.AdvantageNumber)</td>
+        </tr>
+    }
+</table>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ReservationID }) |
     @Html.ActionLink("Back to List", "Index")
