@@ -37,8 +37,10 @@ namespace FinalProject.Models
 
     public class ReservationFlightDetail
     {
+        [Display(Name = "Reservation Flight Detail ID")]
         public Int32 ReservationFlightDetailID { get; set; }
 
+        [Display(Name = "Seat Assignment")]
         public Seats SeatAssignment { get; set; }
 
         //Fare
