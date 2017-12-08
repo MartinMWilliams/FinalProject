@@ -32,7 +32,15 @@ namespace FinalProject.Models
         [Display(Name = "4C")]
         FourC,
         [Display(Name = "4D")]
-        FourD
+        FourD,
+        [Display(Name = "5A")]
+        FiveA,
+        [Display(Name = "5B")]
+        FiveB,
+        [Display(Name = "5C")]
+        FiveC,
+        [Display(Name = "5D")]
+        FiveD
     }
 
     public class ReservationFlightDetail
