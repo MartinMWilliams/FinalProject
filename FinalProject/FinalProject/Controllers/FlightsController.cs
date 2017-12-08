@@ -602,7 +602,14 @@ namespace FinalProject.Controllers
                 {
                     if (Flier.Id == ticket.User.Id)
                     {
-
+                        if (ticket.SeatAssignment == Seats.OneA || ticket.SeatAssignment == Seats.OneB || ticket.SeatAssignment == Seats.TwoA || ticket.SeatAssignment == Seats.TwoB)
+                        {
+                            Flier.Miles += 2000;
+                        }
+                        else
+                        {
+                            Flier.Miles += 1000;
+                        }
                     }
                 }
                 //Flier.Miles += Distance;
@@ -613,17 +620,6 @@ namespace FinalProject.Controllers
 
             return RedirectToAction("Index");
         }
-        //public ActionResult DepartFlight(int FlightID)
-        //{
-        //    Flight FlightToDepart = db.Flights.First(f => f.FlightID == FlightID);
-        //    FlightToDepart.HasDeparted = true;
-        //    foreach (ReservationFlightDetail ticket in FlightToDepart.ReservationFlightDetails)
-        //    {
-        //        ticket.User.
-        //    }
-        //    return RedirectToAction("Index");
-        //}
-
 
 
         // GET: Flights/Edit/5
