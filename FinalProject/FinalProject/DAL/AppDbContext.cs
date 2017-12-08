@@ -34,5 +34,7 @@ namespace FinalProject.DAL
         public System.Data.Entity.DbSet<FinalProject.Models.Reservation> Reservations { get; set; }
 
         public System.Data.Entity.DbSet<FinalProject.Models.ReservationFlightDetail> ReservationFlightDetails { get; set; }
+
+        public System.Data.Entity.DbSet<FinalProject.Models.FlightCrew> FlightCrews { get; set; }
     }
 }
