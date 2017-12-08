@@ -36,6 +36,7 @@ namespace FinalProject.Controllers
             return View(reservation);
         }
 
+        //crew members are not authorized
         // GET: Reservations/Create
         public ActionResult Create()
         {
@@ -189,6 +190,7 @@ namespace FinalProject.Controllers
             return View();
         }
 
+        //crew members are not authorized
         // GET: Reservations/Edit/5
         public ActionResult Edit(int? id)
         {

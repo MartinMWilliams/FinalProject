@@ -41,6 +41,8 @@ namespace FinalProject.Models
         [Display(Name = "Arrival Time")]
         public DateTime ArrivalTime { get; set; }
 
+        public Boolean HasDeparted { get; set;}
+
         [Display(Name = "Duration Info")]
         public virtual Duration DurationInfo { get; set; }
 
