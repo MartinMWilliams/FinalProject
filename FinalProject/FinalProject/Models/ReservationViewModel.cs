@@ -10,6 +10,7 @@ namespace FinalProject.Models
     {
         public Int32 ReservationNumber { get; set; }
 
+        public Int32 FlightID { get; set; }
         public bool RoundTrip { get; set; }
 
         public bool AnotherFlight { get; set; }

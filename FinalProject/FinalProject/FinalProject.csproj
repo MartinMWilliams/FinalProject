@@ -196,7 +196,6 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\DurationsController.cs" />
-    <Compile Include="Controllers\FlightCrewsController.cs" />
     <Compile Include="Controllers\FlightsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReservationFlightDetailsController.cs" />
@@ -262,43 +261,18 @@
     <Compile Include="Migrations\201712060514417_reserve.Designer.cs">
       <DependentUpon>201712060514417_reserve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712072218276_flightcrew.cs" />
-    <Compile Include="Migrations\201712072218276_flightcrew.Designer.cs">
-      <DependentUpon>201712072218276_flightcrew.cs</DependentUpon>
+    <Compile Include="Migrations\201712072246339_test9.cs" />
+    <Compile Include="Migrations\201712072246339_test9.Designer.cs">
+      <DependentUpon>201712072246339_test9.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712072224077_flightcrew2.cs" />
-    <Compile Include="Migrations\201712072224077_flightcrew2.Designer.cs">
-      <DependentUpon>201712072224077_flightcrew2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712072242301_helpme.cs" />
-    <Compile Include="Migrations\201712072242301_helpme.Designer.cs">
-      <DependentUpon>201712072242301_helpme.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712072344460_HELPUGHIHATETHIS.cs" />
-    <Compile Include="Migrations\201712072344460_HELPUGHIHATETHIS.Designer.cs">
-      <DependentUpon>201712072344460_HELPUGHIHATETHIS.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712072351014_WHYME.cs" />
-    <Compile Include="Migrations\201712072351014_WHYME.Designer.cs">
-      <DependentUpon>201712072351014_WHYME.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712080058040_snow.cs" />
-    <Compile Include="Migrations\201712080058040_snow.Designer.cs">
-      <DependentUpon>201712080058040_snow.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712080115535_pleasework.cs" />
-    <Compile Include="Migrations\201712080115535_pleasework.Designer.cs">
-      <DependentUpon>201712080115535_pleasework.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712080121344_wowsomany.cs" />
-    <Compile Include="Migrations\201712080121344_wowsomany.Designer.cs">
-      <DependentUpon>201712080121344_wowsomany.cs</DependentUpon>
+    <Compile Include="Migrations\201712080001107_sync51.cs" />
+    <Compile Include="Migrations\201712080001107_sync51.Designer.cs">
+      <DependentUpon>201712080001107_sync51.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\City.cs" />
-    <Compile Include="Models\FlightCrew.cs" />
     <Compile Include="Models\ReservationViewModel.cs" />
     <Compile Include="Models\FlightViewModel.cs" />
     <Compile Include="Models\Duration.cs" />
@@ -332,11 +306,6 @@
     <Content Include="Views\ReservationFlightDetails\Index.cshtml" />
     <Content Include="Views\Reservations\ReservationSearchResult.cshtml" />
     <Content Include="Views\Reservations\ReservationDetails.cshtml" />
-    <Content Include="Views\FlightCrews\Create.cshtml" />
-    <Content Include="Views\FlightCrews\Delete.cshtml" />
-    <Content Include="Views\FlightCrews\Details.cshtml" />
-    <Content Include="Views\FlightCrews\Edit.cshtml" />
-    <Content Include="Views\FlightCrews\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -390,29 +359,11 @@
     <EmbeddedResource Include="Migrations\201712060514417_reserve.resx">
       <DependentUpon>201712060514417_reserve.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712072218276_flightcrew.resx">
-      <DependentUpon>201712072218276_flightcrew.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712072246339_test9.resx">
+      <DependentUpon>201712072246339_test9.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712072224077_flightcrew2.resx">
-      <DependentUpon>201712072224077_flightcrew2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712072242301_helpme.resx">
-      <DependentUpon>201712072242301_helpme.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712072344460_HELPUGHIHATETHIS.resx">
-      <DependentUpon>201712072344460_HELPUGHIHATETHIS.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712072351014_WHYME.resx">
-      <DependentUpon>201712072351014_WHYME.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712080058040_snow.resx">
-      <DependentUpon>201712080058040_snow.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712080115535_pleasework.resx">
-      <DependentUpon>201712080115535_pleasework.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712080121344_wowsomany.resx">
-      <DependentUpon>201712080121344_wowsomany.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712080001107_sync51.resx">
+      <DependentUpon>201712080001107_sync51.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

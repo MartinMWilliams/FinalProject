@@ -164,6 +164,7 @@ namespace FinalProject.Controllers
         //[ValidateAntiForgeryToken]
         //public ActionResult Create([Bind(Include = "ReservationID")] Reservation reservation)
         public ActionResult Create(int ReservationNumber, bool RoundTrip, bool AnotherFlight, int NumberOfFliers, int FlightID)//Flight SelectedFlight
+        //public ActionResult Create([Bind(Include = "ReservationID")] Reservation reservation,ReservationViewModel FlightInfo)
         {
             Reservation Reservation = new Reservation();
             Reservation.ReservationNumber = ReservationNumber;
@@ -173,7 +174,8 @@ namespace FinalProject.Controllers
             FlightInfo.RoundTrip = RoundTrip;
             FlightInfo.AnotherFlight = AnotherFlight;
             FlightInfo.NumberOfFliers = NumberOfFliers;
-            //FlightInfo.SelectedFlight = SelectedFlight;
+            FlightInfo.FlightID = FlightID;
+            //FlightInfo.SelectedFlight = db.Flights.First(f => f.FlightID == FlightID);
 
             if (ModelState.IsValid)
             {
@@ -182,7 +184,7 @@ namespace FinalProject.Controllers
                 //return RedirectToAction("Index");
             }
             return RedirectToAction("Create", "ReservationFlightDetails", FlightInfo);
-            
+
 
             return View();
         }
@@ -273,15 +275,17 @@ namespace FinalProject.Controllers
         public SelectList GetFlight(ReservationViewModel input)
         {
             var query = from f in db.Flights
-                        where f == input.SelectedFlight
+                        where f.FlightID == input.SelectedFlight.FlightID
                         select f;
 
-            List<Flight> flight = query.ToList();
+            List<Flight> flight = query.ToList<Flight>();
+
 
             SelectList allCitieslist = new SelectList(flight, "FlightID", "FlightNumber");
 
             return allCitieslist;
         }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

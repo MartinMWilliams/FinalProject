@@ -12,6 +12,12 @@
 <table class="table">
     <tr>
         <th>
+             @Html.DisplayNameFor(model => model.City1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City2)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Mileage)
         </th>
         <th>
@@ -22,6 +28,12 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.City1.CityName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.City2.CityName)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Mileage)
         </td>
