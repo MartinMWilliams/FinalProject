@@ -1,0 +1,26 @@
+﻿@using FinalProject.Controllers
+@{
+    ViewBag.Title = "Reports";
+}
+
+<h2>Reports</h2>
+<body background="~/Images/2280.jpg">
+</body>
+
+@using (Html.BeginForm("SearchResults", "Flights", FormMethod.Get))
+{
+    <p class="form-group">
+        Date: @Html.TextBox("SelectedDate", "yyyy-MM-DD", new { @class = "form-control" })
+
+        Departure City: @Html.DropDownList("SelectedDepartureCity", (SelectList)ViewBag.AllCities, new { @class = "form-control" })
+
+
+        Arrival City: @Html.DropDownList("SelectedArrivalCity", (SelectList)ViewBag.AllCities, new { @class = "form-control" })
+
+
+
+
+
+        <input type="submit" value="Search" class="btn btn-default" />
+    </p>
+}

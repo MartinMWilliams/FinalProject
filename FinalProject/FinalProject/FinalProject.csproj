@@ -199,6 +199,7 @@
     <Compile Include="Controllers\FlightCrewsController.cs" />
     <Compile Include="Controllers\FlightsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\ReservationFlightDetailsController.cs" />
     <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
@@ -327,6 +328,7 @@
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\FlightCrew.cs" />
+    <Compile Include="Models\ReportsViewModel.cs" />
     <Compile Include="Models\ReservationViewModel.cs" />
     <Compile Include="Models\FlightViewModel.cs" />
     <Compile Include="Models\Duration.cs" />
@@ -368,6 +370,7 @@
     <Content Include="Views\ReservationFlightDetails\TicketDetails.cshtml" />
     <Content Include="Views\Flights\SelectFlightToDepart.cshtml" />
     <Content Include="Views\Flights\SelectFliers.cshtml" />
+    <Content Include="Views\Reports\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
