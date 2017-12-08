@@ -73,6 +73,11 @@ namespace FinalProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                city.AirportCode.ToUpper();
+                if (db.Cities.Any(c => c.AirportCode == city.AirportCode) == true)
+                {
+                    return RedirectToAction("Create", "Create");
+                }
                 db.Cities.Add(city);
                 db.SaveChanges();
                 return RedirectToAction("Create","Durations",city);
