@@ -261,14 +261,6 @@
     <Compile Include="Migrations\201712060514417_reserve.Designer.cs">
       <DependentUpon>201712060514417_reserve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712072246339_test9.cs" />
-    <Compile Include="Migrations\201712072246339_test9.Designer.cs">
-      <DependentUpon>201712072246339_test9.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201712080001107_sync51.cs" />
-    <Compile Include="Migrations\201712080001107_sync51.Designer.cs">
-      <DependentUpon>201712080001107_sync51.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -358,12 +350,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712060514417_reserve.resx">
       <DependentUpon>201712060514417_reserve.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712072246339_test9.resx">
-      <DependentUpon>201712072246339_test9.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712080001107_sync51.resx">
-      <DependentUpon>201712080001107_sync51.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
