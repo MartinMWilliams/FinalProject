@@ -310,6 +310,10 @@
     <Compile Include="Migrations\201712080717453_coolkidz.Designer.cs">
       <DependentUpon>201712080717453_coolkidz.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712080740523_testing.cs" />
+    <Compile Include="Migrations\201712080740523_testing.Designer.cs">
+      <DependentUpon>201712080740523_testing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -444,6 +448,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712080717453_coolkidz.resx">
       <DependentUpon>201712080717453_coolkidz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080740523_testing.resx">
+      <DependentUpon>201712080740523_testing.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
