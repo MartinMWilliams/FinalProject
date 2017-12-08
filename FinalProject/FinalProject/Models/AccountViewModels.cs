@@ -32,6 +32,7 @@ namespace FinalProject.Models
         public String FirstName { get; set; }
 
         //Additional fields go here
+        [StringLength(1, ErrorMessage = "Middle initial must be one letter.")]
         [Display(Name = "M")]
         public String MiddleInitial { get; set; }
         
@@ -40,28 +41,33 @@ namespace FinalProject.Models
         public String LastName { get; set; }
 
         [Required(ErrorMessage = "Phone Number is required.")]
+        [DataType(DataType.PhoneNumber)]
         [Display(Name = "Phone Number")]
+        [DisplayFormat(DataFormatString = "{0: (###)-###-####}", ApplyFormatInEditMode = true)]
         public String PhoneNumber { get; set; }
 
+        [Display(Name = "Advantage Number")]
         public Int32 AdvantageNumber { get; set; }
 
+        [Required(ErrorMessage = "Date of birth is required.")]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [Display(Name = "Date of Birth")]
         public DateTime DateofBirth { get; set; }
 
-
+        [Required(ErrorMessage = "Address is required.")]
         public String Address { get; set; }
 
+        [Required(ErrorMessage = "City is required.")]
         public String City { get; set; }
 
-        public Int32 AdvangtageNumber { get; set; }
-
+        [Required(ErrorMessage = "Zip code is required.")]
+        [RegularExpression(@"^(\d{5})$", ErrorMessage = "Zip code must be 5 digits.")]
         public String Zip { get; set; }
 
         [Required(ErrorMessage = "State is required.")]
         public States State { get; set; }
-
-
+        
         public Int32 Miles { get; set; }
 
         //NOTE: Here is the property for email
@@ -91,6 +97,7 @@ namespace FinalProject.Models
         public String FirstName { get; set; }
 
         //Additional fields go here
+        [StringLength(1, ErrorMessage = "Middle initial must be one letter.")]
         [Display(Name = "M")]
         public String MiddleInitial { get; set; }
 
@@ -108,7 +115,8 @@ namespace FinalProject.Models
         [Required(ErrorMessage = "City is required.")]
         public String City { get; set; }
 
-        [Required(ErrorMessage = "Zip is required.")]
+        [Required(ErrorMessage = "Zip code is required.")]
+        [RegularExpression(@"^(\d{5})$", ErrorMessage = "Zip code must be 5 digits.")]
         public String Zip { get; set; }
 
 
@@ -116,7 +124,9 @@ namespace FinalProject.Models
         public States State { get; set; }
 
         [Required(ErrorMessage = "Phone Number is required.")]
+        [DataType(DataType.PhoneNumber)]
         [Display(Name = "Phone Number")]
+        [DisplayFormat(DataFormatString = "{0: (###)-###-####}", ApplyFormatInEditMode = true)]
         public String PhoneNumber { get; set; }
 
         //NOTE: Here is the property for email

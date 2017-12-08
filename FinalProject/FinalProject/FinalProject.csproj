@@ -196,6 +196,7 @@
     <Compile Include="Controllers\AccountsController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\DurationsController.cs" />
+    <Compile Include="Controllers\FlightCrewsController.cs" />
     <Compile Include="Controllers\FlightsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReservationFlightDetailsController.cs" />
@@ -261,22 +262,27 @@
     <Compile Include="Migrations\201712060514417_reserve.Designer.cs">
       <DependentUpon>201712060514417_reserve.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712072246339_test9.cs" />
-    <Compile Include="Migrations\201712072246339_test9.Designer.cs">
-      <DependentUpon>201712072246339_test9.cs</DependentUpon>
+    <Compile Include="Migrations\201712080106017_wat.cs" />
+    <Compile Include="Migrations\201712080106017_wat.Designer.cs">
+      <DependentUpon>201712080106017_wat.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712080001107_sync51.cs" />
-    <Compile Include="Migrations\201712080001107_sync51.Designer.cs">
-      <DependentUpon>201712080001107_sync51.cs</DependentUpon>
+    <Compile Include="Migrations\201712080118241_why.cs" />
+    <Compile Include="Migrations\201712080118241_why.Designer.cs">
+      <DependentUpon>201712080118241_why.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201712080122199_sync8.cs" />
     <Compile Include="Migrations\201712080122199_sync8.Designer.cs">
       <DependentUpon>201712080122199_sync8.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712080219375_ohgoshihopethisworks.cs" />
+    <Compile Include="Migrations\201712080219375_ohgoshihopethisworks.Designer.cs">
+      <DependentUpon>201712080219375_ohgoshihopethisworks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\City.cs" />
+    <Compile Include="Models\FlightCrew.cs" />
     <Compile Include="Models\ReservationViewModel.cs" />
     <Compile Include="Models\FlightViewModel.cs" />
     <Compile Include="Models\Duration.cs" />
@@ -310,6 +316,11 @@
     <Content Include="Views\ReservationFlightDetails\Index.cshtml" />
     <Content Include="Views\Reservations\ReservationSearchResult.cshtml" />
     <Content Include="Views\Reservations\ReservationDetails.cshtml" />
+    <Content Include="Views\FlightCrews\Create.cshtml" />
+    <Content Include="Views\FlightCrews\Delete.cshtml" />
+    <Content Include="Views\FlightCrews\Details.cshtml" />
+    <Content Include="Views\FlightCrews\Edit.cshtml" />
+    <Content Include="Views\FlightCrews\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -363,14 +374,17 @@
     <EmbeddedResource Include="Migrations\201712060514417_reserve.resx">
       <DependentUpon>201712060514417_reserve.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712072246339_test9.resx">
-      <DependentUpon>201712072246339_test9.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712080106017_wat.resx">
+      <DependentUpon>201712080106017_wat.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712080001107_sync51.resx">
-      <DependentUpon>201712080001107_sync51.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712080118241_why.resx">
+      <DependentUpon>201712080118241_why.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712080122199_sync8.resx">
       <DependentUpon>201712080122199_sync8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080219375_ohgoshihopethisworks.resx">
+      <DependentUpon>201712080219375_ohgoshihopethisworks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

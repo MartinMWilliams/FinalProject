@@ -72,9 +72,12 @@
 <h4>Reservation Flight Details</h4>
 <table class="table table-bordered">
     <tr>
-        <th>
-            Reservation Flight Detail
-        </th>
+        <th>Reservation Flight Detail ID</th>
+        <th>Seat Assignment</th>
+        <th>Fare</th>
+        <th>Reservation</th>
+        <th>Flight</th>
+        <th>User</th>
     </tr>
     @foreach (var item in Model.ReservationFlightDetails)
     {
@@ -82,6 +85,9 @@
             <td>@Html.DisplayFor(modelItem => item.ReservationFlightDetailID)</td>
             <td>@Html.DisplayFor(modelItem => item.SeatAssignment)</td>
             <td>@Html.DisplayFor(modelItem => item.Fare)</td>
+            <td>@Html.DisplayFor(modelItem => item.Reservation)</td>
+            <td>@Html.DisplayFor(modelItem => item.Flight)</td>
+            <td>@Html.DisplayFor(modelItem => item.User)</td>
         </tr>
     }
 </table>
