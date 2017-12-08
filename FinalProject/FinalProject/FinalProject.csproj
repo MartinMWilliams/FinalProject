@@ -151,6 +151,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\2280.jpg" />
+    <Content Include="Images\flightmap.PNG" />
     <Content Include="Images\unnamed.png" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
