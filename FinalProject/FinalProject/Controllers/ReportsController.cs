@@ -20,7 +20,11 @@ namespace FinalProject.Controllers
         // GET: Reports
         public ActionResult Index()
         {
-            return View(db.ReservationFlightDetails.ToList());
+            ViewBag.DepartureCities = GetDepartureCities();
+            ViewBag.ArrivalCities = GetArrivalCities();
+            ViewBag.AllCities = GetAllCities();
+
+            return View();
         }
 
         //detailed search method
@@ -31,13 +35,13 @@ namespace FinalProject.Controllers
         }
 
         //search results
-        public ActionResult SearchResults(int SelectedDepartureCity, int SelectedArrivalCity, DateTime? SelectedStartDate, DateTime? SelectedEndDate)
+        public ActionResult SearchResults(int DepartureCityID, int ArrivalCityID, DateTime? SelectedStartDate, DateTime? SelectedEndDate, int CityID)
         {
             var query = from r in db.ReservationFlightDetails
                         select r;
 
             //Drop down list for Departure City
-            if (SelectedDepartureCity == 0) //they chose all departure cities
+            if (DepartureCityID == 0) //they chose all departure cities
             {
                 ViewBag.SelectedDepartureCity = "No departure city was selected";
             }
@@ -45,7 +49,7 @@ namespace FinalProject.Controllers
             {
                 //Set the AllCities list from the GetCities method that is in the City model?
                 List<City> AllCities = db.Cities.ToList();
-                City CityToDisplay = AllCities.Find(c => c.CityID == SelectedDepartureCity);
+                City CityToDisplay = AllCities.Find(c => c.CityID == DepartureCityID);
                 ViewBag.SelectedDepartureCity = "The selected departure city is " + CityToDisplay.CityName;
 
                 //Query the results based on the selected departure city
@@ -53,7 +57,7 @@ namespace FinalProject.Controllers
             }
 
             //Drope down list for Arrival Citty
-            if (SelectedArrivalCity == 0) //they chose all arrival cities
+            if (ArrivalCityID == 0) //they chose all arrival cities
             {
                 ViewBag.SelectedArrivalCity = "No arrival city was selected";
             }
@@ -61,7 +65,7 @@ namespace FinalProject.Controllers
             {
                 //Set the AllCities list from the GetCities method that is in the City model?
                 List<City> AllCities = db.Cities.ToList();
-                City CityToDisplay = AllCities.Find(c => c.CityID == SelectedArrivalCity);
+                City CityToDisplay = AllCities.Find(c => c.CityID == ArrivalCityID);
                 ViewBag.SelectedArrivalCity = "The selected arrival city is " + CityToDisplay.CityName;
 
                 //Query the results based on the selected Arrival City
@@ -82,5 +86,49 @@ namespace FinalProject.Controllers
             SelectList allCitiesList = new SelectList(allCities, "CityID", "CityName");
             return allCitiesList;
         }
+
+        public SelectList GetDepartureCities()
+        {
+            List<BruteForce1> fuckthis = new List<BruteForce1>();
+
+            var query = from c in db.Cities
+                        orderby c.CityName
+                        select c;
+
+            foreach (City item in query)
+            {
+                BruteForce1 newcity = new BruteForce1();
+                newcity.DepartureCityID = item.CityID;
+                newcity.DepartureCityName = item.CityName;
+                fuckthis.Add(newcity);
+            }
+
+            SelectList DepartureCitiesList = new SelectList(fuckthis, "DepartureCityID", "DepartureCityName");
+
+            return DepartureCitiesList;
+        }
+
+        public SelectList GetArrivalCities()
+        {
+            List<BruteForce2> fuckthis = new List<BruteForce2>();
+
+            var query = from c in db.Cities
+                        orderby c.CityName
+                        select c;
+
+            foreach (City item in query)
+            {
+                BruteForce2 newcity = new BruteForce2();
+                newcity.ArrivalCityID = item.CityID;
+                newcity.ArrivalCityName = item.CityName;
+                fuckthis.Add(newcity);
+            }
+
+            SelectList ArrivalCitiesList = new SelectList(fuckthis, "ArrivalCityID", "ArrivalCityName");
+
+            return ArrivalCitiesList;
+        }
+
+
     }
 }
