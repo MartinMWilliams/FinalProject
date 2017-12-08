@@ -11,11 +11,28 @@
 </p>
 <table class="table">
     <tr>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservationID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReservationNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalFare)
+        </th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReservationID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReservationNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalFare)
+        </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ReservationID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ReservationID }) |

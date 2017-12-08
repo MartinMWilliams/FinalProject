@@ -151,6 +151,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\2280.jpg" />
+    <Content Include="Images\flightmap.PNG" />
     <Content Include="Images\unnamed.png" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -199,6 +200,7 @@
     <Compile Include="Controllers\FlightCrewsController.cs" />
     <Compile Include="Controllers\FlightsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\ReservationFlightDetailsController.cs" />
     <Compile Include="Controllers\ReservationsController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
@@ -318,11 +320,16 @@
     <Compile Include="Migrations\201712080741341_asdf.Designer.cs">
       <DependentUpon>201712080741341_asdf.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712080740523_testing.cs" />
+    <Compile Include="Migrations\201712080740523_testing.Designer.cs">
+      <DependentUpon>201712080740523_testing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\FlightCrew.cs" />
+    <Compile Include="Models\ReportsViewModel.cs" />
     <Compile Include="Models\ReservationViewModel.cs" />
     <Compile Include="Models\FlightViewModel.cs" />
     <Compile Include="Models\Duration.cs" />
@@ -364,6 +371,7 @@
     <Content Include="Views\ReservationFlightDetails\TicketDetails.cshtml" />
     <Content Include="Views\Flights\SelectFlightToDepart.cshtml" />
     <Content Include="Views\Flights\SelectFliers.cshtml" />
+    <Content Include="Views\Reports\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -458,6 +466,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712080741341_asdf.resx">
       <DependentUpon>201712080741341_asdf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080740523_testing.resx">
+      <DependentUpon>201712080740523_testing.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

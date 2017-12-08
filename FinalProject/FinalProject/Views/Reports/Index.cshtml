@@ -1,0 +1,63 @@
+﻿@model FinalProject.Models.ReportsViewModel
+@using FinalProject.Controllers
+@{
+    ViewBag.Title = "Reports";
+}
+
+<h2>Reports</h2>
+<body background="~/Images/2280.jpg">
+</body>
+
+@using (Html.BeginForm("SearchResults", "Reports"))
+{
+<p class="form-group">
+
+
+    @*Departure City: @Html.DropDownList("DepartureCityID", (SelectList)ViewBag.DepartureCities, new { @class = "form-control" })
+
+
+        Arrival City: @Html.DropDownList("ArrivalCityID", (SelectList)ViewBag.ArrivalCities, new { @class = "form-control" })
+
+        Date: @Html.TextBox("SelectedDate", "yyyy-MM-DD", new { @class = "form-control" })
+
+        Date: @Html.TextBox("SelectedDate", "yyyy-MM-DD", new { @class = "form-control" })*@
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DepartureCityName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("DepartureCityID", (SelectList)ViewBag.DepartureCities, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ArrivalCityName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("ArrivalCityID", (SelectList)ViewBag.ArrivalCities, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.StartDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBox("SelectedStartDate", "yyyy-MM-DD", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.EndDate, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBox("SelectedEndDate", "yyyy-MM-DD", new { @class = "form-control" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.DepartureCityName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("CityID", (SelectList)ViewBag.AllCities, new { @class = "form-control" })
+        </div>
+    </div>
+
+    <input type="submit" value="Search" class="btn btn-default" />
+</p>
+}
