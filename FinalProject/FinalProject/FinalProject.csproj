@@ -269,6 +269,10 @@
     <Compile Include="Migrations\201712080118241_why.Designer.cs">
       <DependentUpon>201712080118241_why.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712080122199_sync8.cs" />
+    <Compile Include="Migrations\201712080122199_sync8.Designer.cs">
+      <DependentUpon>201712080122199_sync8.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -364,6 +368,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712080118241_why.resx">
       <DependentUpon>201712080118241_why.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080122199_sync8.resx">
+      <DependentUpon>201712080122199_sync8.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

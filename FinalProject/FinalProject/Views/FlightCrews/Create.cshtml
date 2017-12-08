@@ -1,0 +1,55 @@
+﻿@model FinalProject.Models.FlightCrew
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>FlightCrew</h4>
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2">Flight</label>
+            <div class="col-md-10">
+                @Html.DropDownList("FlightID", (SelectList)ViewBag.AllFlights, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Pilot</label>
+            <div class="col-md-10">
+                @Html.DropDownList("FlightID", (SelectList)ViewBag.AllPilots, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Co-Pilot</label>
+            <div class="col-md-10">
+                @Html.DropDownList("FlightID", (SelectList)ViewBag.AllCoPilots, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2">Cabin Crew</label>
+            <div class="col-md-10">
+                @Html.DropDownList("FlightID", (SelectList)ViewBag.AllCabinCrew, new { @class = "form-control" })
+            </div>
+        </div>
+
+        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+        }
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

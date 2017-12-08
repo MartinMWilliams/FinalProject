@@ -46,9 +46,21 @@ namespace FinalProject.Controllers
             ViewBag.Fare = GetBaseFare(FlightInfo.FlightID);
             ViewBag.SelectedFlight = GetFlight(FlightInfo.FlightID);
             ViewBag.AllUsers = GetAllUsers();
+            ViewBag.RemainingSeats = GetAvailableSeats(FlightInfo.FlightID);
 
             flightdetail.Flight = db.Flights.First(f => f.FlightID == FlightInfo.FlightID);
             flightdetail.Reservation = db.Reservations.First(r => r.ReservationNumber == FlightInfo.ReservationNumber);
+            return View();
+        }
+
+        public ActionResult TicketDetails(int ReservationNumber, Seats SeatAssignment, int Fare, int FlightID, String id )
+        {
+            //ReservationFlightDetail ticket = new ReservationFlightDetail();
+            //ticket.Reservation = db.Reservations.First(r => r.ReservationNumber == ReservationNumber);
+            //ticket.Flight = db.Flights.First(f => f.FlightID == FlightID);
+            //ticket.User = db.Users.First(u => u.Id == id);
+            //ticket.SeatAssignment = SeatAssignment;
+            
             return View();
         }
 
@@ -158,10 +170,18 @@ namespace FinalProject.Controllers
             return faretochange;
         }
 
-        //public SelectList GetAvailableSeats(Seats SeatAssignment)
-        //{
+        public int GetAvailableSeats(int FlightID)
+        {
+            Flight flight = db.Flights.First(f => f.FlightID == FlightID);
+            List<Seats> AvailableSeats = new List<Seats>();
+            foreach (ReservationFlightDetail ticket in (dynamic)flight)
+            {
 
-        //}
+            }
+
+            int a = 1;
+            return a;
+        }
 
         public Decimal GetBaseFare(int FlightID)
         {
