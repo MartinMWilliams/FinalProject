@@ -166,7 +166,7 @@ namespace FinalProject.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
 
                 //TODO:  Once you get roles working, you may want to add users to roles upon creation
-                await UserManager.AddToRoleAsync(user.Id, "Customer");
+                await UserManager.AddToRoleAsync(user.Id, "Customers");
                 // --OR--
                 // await UserManager.AddToRoleAsync(user.Id, "Employee");
 
