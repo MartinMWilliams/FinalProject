@@ -72,23 +72,30 @@
 <h4>Reservation Flight Details</h4>
 <table class="table table-bordered">
     <tr>
-        <th>Reservation Flight Detail ID</th>
+        <th>First Name</th>
+        <th>MI</th>
+        <th>Last Name</th>
         <th>Seat Assignment</th>
         <th>Fare</th>
-        <th>Reservation</th>
-        <th>Flight</th>
-        <th>User</th>
+        <th>Reservation ID</th>
+        <th>Reservation Number</th>
+        <th>Total Fare</th>
+        <th>Advantage Number</th>
+
     </tr>
     @foreach (var item in Model.ReservationFlightDetails)
     {
-        <tr>
-            <td>@Html.DisplayFor(modelItem => item.ReservationFlightDetailID)</td>
-            <td>@Html.DisplayFor(modelItem => item.SeatAssignment)</td>
-            <td>@Html.DisplayFor(modelItem => item.Fare)</td>
-            <td>@Html.DisplayFor(modelItem => item.Reservation)</td>
-            <td>@Html.DisplayFor(modelItem => item.Flight)</td>
-            <td>@Html.DisplayFor(modelItem => item.User)</td>
-        </tr>
+    <tr>
+        <td>@Html.DisplayFor(modelItem => item.User.FirstName)</td>
+        <td>@Html.DisplayFor(modelItem => item.User.MiddleInitial)</td>
+        <td>@Html.DisplayFor(modelItem => item.User.LastName)</td>
+        <td>@Html.DisplayFor(modelItem => item.SeatAssignment)</td>
+        <td>@Html.DisplayFor(modelItem => item.Fare)</td>
+        <td>@Html.DisplayFor(modelItem => item.Reservation.ReservationID)</td>
+        <td>@Html.DisplayFor(modelItem => item.Reservation.ReservationNumber)</td>
+        <td>@Html.DisplayFor(modelItem => item.Reservation.TotalFare)</td>
+        <td>@Html.DisplayFor(modelItem => item.User.AdvantageNumber)</td>
+    </tr>
     }
 </table>
 <p>

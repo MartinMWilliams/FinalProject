@@ -278,6 +278,10 @@
     <Compile Include="Migrations\201712080219375_ohgoshihopethisworks.Designer.cs">
       <DependentUpon>201712080219375_ohgoshihopethisworks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712080453419_wassup.cs" />
+    <Compile Include="Migrations\201712080453419_wassup.Designer.cs">
+      <DependentUpon>201712080453419_wassup.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -386,6 +390,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712080219375_ohgoshihopethisworks.resx">
       <DependentUpon>201712080219375_ohgoshihopethisworks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080453419_wassup.resx">
+      <DependentUpon>201712080453419_wassup.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
