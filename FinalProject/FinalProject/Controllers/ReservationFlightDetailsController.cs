@@ -37,14 +37,18 @@ namespace FinalProject.Controllers
         }
 
         // GET: ReservationFlightDetails/Create
-        public ActionResult Create(ReservationViewModel FlightInfo)
+        //public ActionResult Create(ReservationViewModel FlightInfo)
+        public ActionResult Create(ReservationViewModel FlightInfo) //int ReservationNumber, bool RoundTrip, bool AnotherFlight, int NumberOfFliers,  int FlightID
         {
-            //ReservationFlightDetail flightdetail = new ReservationFlightDetail();
-            ViewBag.SelectedFlight = FlightInfo.SelectedFlight;
+            ReservationFlightDetail flightdetail = new ReservationFlightDetail();
+            
             ViewBag.ReservationNumber = FlightInfo.ReservationNumber;
+            ViewBag.Fare = GetBaseFare(FlightInfo.FlightID);
+            ViewBag.SelectedFlight = GetFlight(FlightInfo.FlightID);
             ViewBag.AllUsers = GetAllUsers();
-            //flightdetail.Flight = FlightInfo.SelectedFlight;
-            //flightdetail.Reservation = db.Reservations.First(r => r.ReservationNumber == FlightInfo.ReservationNumber);
+
+            flightdetail.Flight = db.Flights.First(f => f.FlightID == FlightInfo.FlightID);
+            flightdetail.Reservation = db.Reservations.First(r => r.ReservationNumber == FlightInfo.ReservationNumber);
             return View();
         }
 
@@ -82,7 +86,7 @@ namespace FinalProject.Controllers
 
         // POST: ReservationFlightDetails/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details tsee https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ReservationFlightDetailID,SeatAssignment,Fare")] ReservationFlightDetail reservationFlightDetail)
@@ -131,6 +135,51 @@ namespace FinalProject.Controllers
             List<AppUser> allUsers = query.ToList();
 
             SelectList allCitieslist = new SelectList(allUsers, "id", "AdvantageNumber");
+
+            return allCitieslist;
+        }
+
+        public Decimal GetFare(Flight fareflight, AppUser fareuser)
+        {
+            Decimal faretochange = fareflight.BaseFare;
+            DateTime now = DateTime.Today;
+            int age = now.Year - fareuser.DateofBirth.Year;
+
+            if (age > 65)
+            {
+                faretochange = faretochange * (.9m);
+            }
+
+            if (age >= 3 && age <= 12)
+            {
+                faretochange = faretochange * (.85m);
+            }
+
+            return faretochange;
+        }
+
+        //public SelectList GetAvailableSeats(Seats SeatAssignment)
+        //{
+
+        //}
+
+        public Decimal GetBaseFare(int FlightID)
+        {
+            Flight flight = db.Flights.First(f => f.FlightID == FlightID);
+            Decimal basefare = flight.BaseFare;
+            return basefare;
+        }
+
+        public SelectList GetFlight(int FlightID)
+        {
+            var query = from f in db.Flights
+                        where f.FlightID == FlightID
+                        select f;
+
+            List<Flight> flight = query.ToList<Flight>();
+
+
+            SelectList allCitieslist = new SelectList(flight, "FlightID", "FlightNumber");
 
             return allCitieslist;
         }
