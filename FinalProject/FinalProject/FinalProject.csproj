@@ -306,9 +306,17 @@
     <Compile Include="Migrations\201712080551175_anothaone.Designer.cs">
       <DependentUpon>201712080551175_anothaone.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712080717453_coolkidz.cs" />
-    <Compile Include="Migrations\201712080717453_coolkidz.Designer.cs">
-      <DependentUpon>201712080717453_coolkidz.cs</DependentUpon>
+    <Compile Include="Migrations\201712080728100_ohfuck.cs" />
+    <Compile Include="Migrations\201712080728100_ohfuck.Designer.cs">
+      <DependentUpon>201712080728100_ohfuck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712080738230_fuckthisbullshit.cs" />
+    <Compile Include="Migrations\201712080738230_fuckthisbullshit.Designer.cs">
+      <DependentUpon>201712080738230_fuckthisbullshit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712080741341_asdf.cs" />
+    <Compile Include="Migrations\201712080741341_asdf.Designer.cs">
+      <DependentUpon>201712080741341_asdf.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201712080740523_testing.cs" />
     <Compile Include="Migrations\201712080740523_testing.Designer.cs">
@@ -446,8 +454,14 @@
     <EmbeddedResource Include="Migrations\201712080551175_anothaone.resx">
       <DependentUpon>201712080551175_anothaone.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712080717453_coolkidz.resx">
-      <DependentUpon>201712080717453_coolkidz.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201712080728100_ohfuck.resx">
+      <DependentUpon>201712080728100_ohfuck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080738230_fuckthisbullshit.resx">
+      <DependentUpon>201712080738230_fuckthisbullshit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080741341_asdf.resx">
+      <DependentUpon>201712080741341_asdf.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712080740523_testing.resx">
       <DependentUpon>201712080740523_testing.cs</DependentUpon>
