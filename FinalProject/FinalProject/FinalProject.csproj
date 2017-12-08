@@ -286,6 +286,10 @@
     <Compile Include="Migrations\201712080525341_butwhy.Designer.cs">
       <DependentUpon>201712080525341_butwhy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712080551175_anothaone.cs" />
+    <Compile Include="Migrations\201712080551175_anothaone.Designer.cs">
+      <DependentUpon>201712080551175_anothaone.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -400,6 +404,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712080525341_butwhy.resx">
       <DependentUpon>201712080525341_butwhy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080551175_anothaone.resx">
+      <DependentUpon>201712080551175_anothaone.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
