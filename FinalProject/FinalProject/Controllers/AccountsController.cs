@@ -374,23 +374,6 @@ namespace FinalProject.Controllers
 
         #endregion
 
-        //public Decimal GetFare(Flight fareflight, AppUser fareuser)
-        //{
-        //    Decimal faretochange = fareflight.BaseFare;
-        //    DateTime now = DateTime.Today;
-        //    int age = now.Year - fareuser.DateofBirth.Year;
 
-        //    if (age > 65)
-        //    {
-        //        faretochange = faretochange * (.9m);
-        //    }
-
-        //    if (age >= 3 && age <= 12)
-        //    {
-        //        faretochange = faretochange * (.85m);
-        //    }
-
-        //    return faretochange;
-        //}
     }
 }

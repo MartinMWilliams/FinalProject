@@ -44,11 +44,11 @@ namespace FinalProject
             // TODO: Configure validation logic for passwords
             manager.PasswordValidator = new PasswordValidator
             {
-                RequiredLength = 6,
+                RequiredLength = 5,
                 RequireNonLetterOrDigit = false,
-                RequireDigit = true,
-                RequireLowercase = true,
-                RequireUppercase = true
+                RequireDigit = false,
+                RequireLowercase = false,
+                RequireUppercase = false
             };
 
 
