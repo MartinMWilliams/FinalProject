@@ -36,6 +36,7 @@ namespace FinalProject.Controllers
             return View(reservation);
         }
 
+        [Authorize(Roles = "Managers")]
         //crew members are not authorized
         // GET: Reservations/Create
         public ActionResult Create()
@@ -164,6 +165,7 @@ namespace FinalProject.Controllers
         [HttpPost]
         //[ValidateAntiForgeryToken]
         //public ActionResult Create([Bind(Include = "ReservationID")] Reservation reservation)
+        [Authorize(Roles = "Managers")]
         public ActionResult Create(int ReservationNumber, bool RoundTrip, bool AnotherFlight, int NumberOfFliers, int FlightID)//Flight SelectedFlight
         //public ActionResult Create([Bind(Include = "ReservationID")] Reservation reservation,ReservationViewModel FlightInfo)
         {

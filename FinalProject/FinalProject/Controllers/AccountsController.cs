@@ -201,7 +201,7 @@ namespace FinalProject.Controllers
         //
         // POST: /Accounts/RegisterEmployee
         [HttpPost]
-        [AllowAnonymous]
+        [Authorize(Roles = "Managers")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> RegisterEmployee(RegisterEmployeeViewModel model)
         {

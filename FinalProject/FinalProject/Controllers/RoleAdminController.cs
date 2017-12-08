@@ -18,7 +18,7 @@ namespace FinalProject.Controllers
     //[Authorize(Roles = "Admin")]
     public class RoleAdminController : Controller
     {
-        //[Authorize(Roles = "Managers")]
+        [Authorize(Roles = "Managers")]
         // GET: /RoleAdmin/
         public ActionResult Index()
         {
@@ -30,6 +30,7 @@ namespace FinalProject.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Managers")]
         [HttpPost]
         public ActionResult Create([Required] string name)
         {
