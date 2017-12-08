@@ -10,10 +10,11 @@
 
 @using (Html.BeginForm())
 {
-    <p class="form-group">
-        @Html.ActionLink("Detailed Search", "DetailedSearch", null, new { @class="btn btn-default"})
-        @Html.ActionLink("Show All", "Index", null, new { @class="btn btn-default"})
-    </p>
+<p class="form-group">
+    @Html.ActionLink("Detailed Search", "DetailedSearch", null, new { @class = "btn btn-default" })
+    @Html.ActionLink("Show All", "Index", null, new { @class = "btn btn-default" })
+    @Html.ActionLink("DepartFlight", "SelectFlightToDepart", null, new { @class = "btn btn-default" })
+</p>
 }
 @using (Html.BeginForm("SearchDateResults", "Flights", FormMethod.Get))
 {

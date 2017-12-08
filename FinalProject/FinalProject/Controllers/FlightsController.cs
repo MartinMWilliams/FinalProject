@@ -167,6 +167,8 @@ namespace FinalProject.Controllers
             flight.DepartureCityName = db.Cities.FirstOrDefault(c=>c.CityID == flight.DepartureCityID).CityName;
 
             flight.ArrivalCityName = db.Cities.FirstOrDefault(c => c.CityID == flight.ArrivalCityID).CityName;
+
+            
             if (ModelState.IsValid)
             {
                 foreach (var i in flight.SelectedDays)
@@ -182,6 +184,7 @@ namespace FinalProject.Controllers
                         Dec4Flight.ArrivalTime = Dec4Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec4Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec4Flight.Date = new DateTime(2017, 12, 4);
+                        Dec4Flight.HasDeparted = false;
 
                         Flight Dec11Flight = new Flight();
                         Dec11Flight.FlightNumber = flight.FlightNumber;
@@ -192,6 +195,7 @@ namespace FinalProject.Controllers
                         Dec11Flight.ArrivalTime = Dec11Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec11Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec11Flight.Date = new DateTime(2017, 12, 11);
+                        Dec11Flight.HasDeparted = false;
 
                         Flight Dec18Flight = new Flight();
                         Dec18Flight.FlightNumber = flight.FlightNumber;
@@ -202,6 +206,7 @@ namespace FinalProject.Controllers
                         Dec18Flight.ArrivalTime = Dec18Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec18Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec18Flight.Date = new DateTime(2017, 12, 18);
+                        Dec18Flight.HasDeparted = false;
 
                         Flight Dec25Flight = new Flight();
                         Dec25Flight.FlightNumber = flight.FlightNumber;
@@ -212,6 +217,7 @@ namespace FinalProject.Controllers
                         Dec25Flight.ArrivalTime = Dec25Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec25Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec25Flight.Date = new DateTime(2017, 12, 25);
+                        Dec25Flight.HasDeparted = false;
 
                         db.Flights.Add(Dec4Flight);
                         db.Flights.Add(Dec11Flight);
@@ -229,6 +235,7 @@ namespace FinalProject.Controllers
                         Dec5Flight.ArrivalTime = Dec5Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec5Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec5Flight.Date = new DateTime(2017, 12, 5);
+                        Dec5Flight.HasDeparted = false;
 
                         Flight Dec12Flight = new Flight();
                         Dec12Flight.FlightNumber = flight.FlightNumber;
@@ -239,6 +246,7 @@ namespace FinalProject.Controllers
                         Dec12Flight.ArrivalTime = Dec12Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec12Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec12Flight.Date = new DateTime(2017, 12, 12);
+                        Dec12Flight.HasDeparted = false;
 
                         Flight Dec19Flight = new Flight();
                         Dec19Flight.FlightNumber = flight.FlightNumber;
@@ -249,6 +257,7 @@ namespace FinalProject.Controllers
                         Dec19Flight.ArrivalTime = Dec19Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec19Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec19Flight.Date = new DateTime(2017, 12, 19);
+                        Dec19Flight.HasDeparted = false;
 
                         Flight Dec26Flight = new Flight();
                         Dec26Flight.FlightNumber = flight.FlightNumber;
@@ -259,6 +268,7 @@ namespace FinalProject.Controllers
                         Dec26Flight.ArrivalTime = Dec26Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec26Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec26Flight.Date = new DateTime(2017, 12, 26);
+                        Dec26Flight.HasDeparted = false;
 
                         db.Flights.Add(Dec5Flight);
                         db.Flights.Add(Dec12Flight);
@@ -276,6 +286,7 @@ namespace FinalProject.Controllers
                         Dec6Flight.ArrivalTime = Dec6Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec6Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec6Flight.Date = new DateTime(2017, 12, 6);
+                        Dec6Flight.HasDeparted = false;
 
                         Flight Dec13Flight = new Flight();
                         Dec13Flight.FlightNumber = flight.FlightNumber;
@@ -286,6 +297,7 @@ namespace FinalProject.Controllers
                         Dec13Flight.ArrivalTime = Dec13Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec13Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec13Flight.Date = new DateTime(2017, 12, 13);
+                        Dec13Flight.HasDeparted = false;
 
                         Flight Dec20Flight = new Flight();
                         Dec20Flight.FlightNumber = flight.FlightNumber;
@@ -296,7 +308,8 @@ namespace FinalProject.Controllers
                         Dec20Flight.ArrivalTime = Dec20Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec20Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec20Flight.Date = new DateTime(2017, 12, 20);
-
+                        Dec20Flight.HasDeparted = false;
+                           
                         Flight Dec27Flight = new Flight();
                         Dec27Flight.FlightNumber = flight.FlightNumber;
                         Dec27Flight.DepartureCity = flight.DepartureCityName;
@@ -306,6 +319,7 @@ namespace FinalProject.Controllers
                         Dec27Flight.ArrivalTime = Dec27Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec27Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec27Flight.Date = new DateTime(2017, 12, 27);
+                        Dec27Flight.HasDeparted = false;
 
                         db.Flights.Add(Dec6Flight);
                         db.Flights.Add(Dec13Flight);
@@ -323,6 +337,7 @@ namespace FinalProject.Controllers
                         Dec7Flight.ArrivalTime = Dec7Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec7Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec7Flight.Date = new DateTime(2017, 12, 7);
+                        Dec7Flight.HasDeparted = false;
 
                         Flight Dec14Flight = new Flight();
                         Dec14Flight.FlightNumber = flight.FlightNumber;
@@ -333,6 +348,7 @@ namespace FinalProject.Controllers
                         Dec14Flight.ArrivalTime = Dec14Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec14Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec14Flight.Date = new DateTime(2017, 12, 14);
+                        Dec14Flight.HasDeparted = false;
 
                         Flight Dec21Flight = new Flight();
                         Dec21Flight.FlightNumber = flight.FlightNumber;
@@ -343,6 +359,7 @@ namespace FinalProject.Controllers
                         Dec21Flight.ArrivalTime = Dec21Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec21Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec21Flight.Date = new DateTime(2017, 12, 21);
+                        Dec21Flight.HasDeparted = false;
 
                         Flight Dec28Flight = new Flight();
                         Dec28Flight.FlightNumber = flight.FlightNumber;
@@ -353,6 +370,7 @@ namespace FinalProject.Controllers
                         Dec28Flight.ArrivalTime = Dec28Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec28Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec28Flight.Date = new DateTime(2017, 12, 28);
+                        Dec28Flight.HasDeparted = false;
 
                         db.Flights.Add(Dec7Flight);
                         db.Flights.Add(Dec14Flight);
@@ -370,6 +388,7 @@ namespace FinalProject.Controllers
                         Dec1Flight.ArrivalTime = Dec1Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec1Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec1Flight.Date = new DateTime(2017, 12, 1);
+                        Dec1Flight.HasDeparted = false;
 
                         Flight Dec8Flight = new Flight();
                         Dec8Flight.FlightNumber = flight.FlightNumber;
@@ -380,6 +399,7 @@ namespace FinalProject.Controllers
                         Dec8Flight.ArrivalTime = Dec8Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec8Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec8Flight.Date = new DateTime(2017, 12, 8);
+                        Dec8Flight.HasDeparted = false;
 
                         Flight Dec15Flight = new Flight();
                         Dec15Flight.FlightNumber = flight.FlightNumber;
@@ -390,6 +410,7 @@ namespace FinalProject.Controllers
                         Dec15Flight.ArrivalTime = Dec15Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec15Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec15Flight.Date = new DateTime(2017, 12, 15);
+                        Dec15Flight.HasDeparted = false;
 
                         Flight Dec22Flight = new Flight();
                         Dec22Flight.FlightNumber = flight.FlightNumber;
@@ -400,6 +421,7 @@ namespace FinalProject.Controllers
                         Dec22Flight.ArrivalTime = Dec22Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec22Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec22Flight.Date = new DateTime(2017, 12, 22);
+                        Dec22Flight.HasDeparted = false;
 
                         Flight Dec29Flight = new Flight();
                         Dec29Flight.FlightNumber = flight.FlightNumber;
@@ -410,6 +432,7 @@ namespace FinalProject.Controllers
                         Dec29Flight.ArrivalTime = Dec29Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec29Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec29Flight.Date = new DateTime(2017, 12, 29);
+                        Dec29Flight.HasDeparted = false;
 
                         db.Flights.Add(Dec1Flight);
                         db.Flights.Add(Dec8Flight);
@@ -428,6 +451,7 @@ namespace FinalProject.Controllers
                         Dec2Flight.ArrivalTime = Dec2Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec2Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec2Flight.Date = new DateTime(2017, 12, 2);
+                        Dec2Flight.HasDeparted = false;
 
                         Flight Dec9Flight = new Flight();
                         Dec9Flight.FlightNumber = flight.FlightNumber;
@@ -438,6 +462,7 @@ namespace FinalProject.Controllers
                         Dec9Flight.ArrivalTime = Dec9Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec9Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec9Flight.Date = new DateTime(2017, 12, 9);
+                        Dec9Flight.HasDeparted = false;
 
                         Flight Dec16Flight = new Flight();
                         Dec16Flight.FlightNumber = flight.FlightNumber;
@@ -448,6 +473,7 @@ namespace FinalProject.Controllers
                         Dec16Flight.ArrivalTime = Dec16Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec16Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec16Flight.Date = new DateTime(2017, 12, 16);
+                        Dec16Flight.HasDeparted = false;
 
                         Flight Dec23Flight = new Flight();
                         Dec23Flight.FlightNumber = flight.FlightNumber;
@@ -458,6 +484,7 @@ namespace FinalProject.Controllers
                         Dec23Flight.ArrivalTime = Dec23Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec23Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec23Flight.Date = new DateTime(2017, 12, 23);
+                        Dec23Flight.HasDeparted = false;
 
                         Flight Dec30Flight = new Flight();
                         Dec30Flight.FlightNumber = flight.FlightNumber;
@@ -468,6 +495,7 @@ namespace FinalProject.Controllers
                         Dec30Flight.ArrivalTime = Dec30Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec30Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec30Flight.Date = new DateTime(2017, 12, 30);
+                        Dec30Flight.HasDeparted = false;
 
                         db.Flights.Add(Dec2Flight);
                         db.Flights.Add(Dec9Flight);
@@ -486,6 +514,7 @@ namespace FinalProject.Controllers
                         Dec3Flight.ArrivalTime = Dec3Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec3Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec3Flight.Date = new DateTime(2017, 12, 3);
+                        Dec3Flight.HasDeparted = false;
 
                         Flight Dec10Flight = new Flight();
                         Dec10Flight.FlightNumber = flight.FlightNumber;
@@ -496,6 +525,7 @@ namespace FinalProject.Controllers
                         Dec10Flight.ArrivalTime = Dec10Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec10Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec10Flight.Date = new DateTime(2017, 12, 10);
+                        Dec10Flight.HasDeparted = false;
 
                         Flight Dec17Flight = new Flight();
                         Dec17Flight.FlightNumber = flight.FlightNumber;
@@ -506,6 +536,7 @@ namespace FinalProject.Controllers
                         Dec17Flight.ArrivalTime = Dec17Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec17Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec17Flight.Date = new DateTime(2017, 12, 17);
+                        Dec17Flight.HasDeparted = false;
 
                         Flight Dec24Flight = new Flight();
                         Dec24Flight.FlightNumber = flight.FlightNumber;
@@ -516,6 +547,7 @@ namespace FinalProject.Controllers
                         Dec24Flight.ArrivalTime = Dec24Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec24Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec24Flight.Date = new DateTime(2017, 12, 24);
+                        Dec24Flight.HasDeparted = false;
 
                         Flight Dec31Flight = new Flight();
                         Dec31Flight.FlightNumber = flight.FlightNumber;
@@ -526,6 +558,7 @@ namespace FinalProject.Controllers
                         Dec31Flight.ArrivalTime = Dec31Flight.DepartureTime.Add(GetFlightTime(flight.DepartureCityID, flight.ArrivalCityID));
                         //Dec31Flight.ArrivalTime = flight.DepartureTime.AddHours(10);
                         Dec31Flight.Date = new DateTime(2017, 12, 31);
+                        Dec31Flight.HasDeparted = false;
 
                         db.Flights.Add(Dec3Flight);
                         db.Flights.Add(Dec10Flight);
@@ -542,6 +575,56 @@ namespace FinalProject.Controllers
 
             return View();
         }
+
+
+
+        public ActionResult SelectFlightToDepart()
+        {
+            ViewBag.AllFlights = GetAllFlights();
+            return View();
+        }
+
+        public ActionResult SelectFliers(int FlightID)
+        {
+            ViewBag.SelectedFlight = GetFlight(FlightID);
+            ViewBag.Fliers = GetFliers(FlightID);
+            return View();
+        }
+
+        public ActionResult DepartFlight(int FlightID, String[] id)
+        {
+            Flight flight = db.Flights.First(f => f.FlightID == FlightID);
+            flight.HasDeparted = true;
+            foreach (String flier in id)
+            {
+                AppUser Flier = db.Users.First(u => u.Id == flier);
+                foreach (ReservationFlightDetail ticket in flight.ReservationFlightDetails)
+                {
+                    if (Flier.Id == ticket.User.Id)
+                    {
+
+                    }
+                }
+                //Flier.Miles += Distance;
+
+
+            }
+            db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
+        //public ActionResult DepartFlight(int FlightID)
+        //{
+        //    Flight FlightToDepart = db.Flights.First(f => f.FlightID == FlightID);
+        //    FlightToDepart.HasDeparted = true;
+        //    foreach (ReservationFlightDetail ticket in FlightToDepart.ReservationFlightDetails)
+        //    {
+        //        ticket.User.
+        //    }
+        //    return RedirectToAction("Index");
+        //}
+
+
 
         // GET: Flights/Edit/5
         public ActionResult Edit(int? id)
@@ -626,32 +709,6 @@ namespace FinalProject.Controllers
             return mulitselectDays;
         }
 
-        //public SelectList GetAllArrCities()
-        //{
-        //    var query = from c in db.Cities
-        //                orderby c.CityName
-        //                select c;
-
-        //    List<City> allCities = query.ToList();
-
-        //    SelectList allCitieslist = new SelectList(allCities, "ArrivalCityID", "CityName");
-
-        //    return allCitieslist;
-        //}
-
-        //public SelectList GetAllDepCities()
-        //{
-        //    var query = from c in db.Cities
-        //                orderby c.CityName
-        //                select c;
-
-        //    List<City> allCities = query.ToList();
-
-        //    SelectList allCitieslist = new SelectList(allCities, "DepartureCityID", "CityName");
-
-        //    return allCitieslist;
-        //}
-
         public SelectList GetAllCities()
         {
             var query = from c in db.Cities
@@ -717,5 +774,48 @@ namespace FinalProject.Controllers
                         return FlightTime;
 
         }
+
+        public SelectList GetAllFlights()  //NO COMMITTEE CHOOSEN
+        {
+            //create query to find all committees
+            var query = from c in db.Flights
+                        orderby c.FlightID
+                        select c;
+            //execute query and store in list
+            List<Flight> allFlights = query.ToList();
+
+            //convert list to select list format needed for HTML
+            SelectList allFlightslist = new SelectList(allFlights, "FlightID", "FlightNumberDate", "Date");
+
+            return allFlightslist;
+        }
+
+        public SelectList GetFlight(int FlightID)
+        {
+            var query = from f in db.Flights
+                        where f.FlightID == FlightID
+                        select f;
+
+            List<Flight> flight = query.ToList<Flight>();
+
+
+            SelectList allCitieslist = new SelectList(flight, "FlightID", "FlightNumber");
+
+            return allCitieslist;
+        }
+        public SelectList GetFliers(int FlightID)
+        {
+            Flight flight = db.Flights.First(f => f.FlightID == FlightID);
+            List<AppUser> fliers = new List<AppUser>();
+
+            foreach (ReservationFlightDetail ticket in flight.ReservationFlightDetails)
+            {
+                fliers.Add(ticket.User);
+            }
+            SelectList allCitieslist = new SelectList(fliers, "Id", "AdvantageNumber");
+
+            return allCitieslist;
+        }
+            
     }
 }

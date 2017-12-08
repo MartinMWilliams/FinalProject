@@ -278,6 +278,30 @@
     <Compile Include="Migrations\201712080219375_ohgoshihopethisworks.Designer.cs">
       <DependentUpon>201712080219375_ohgoshihopethisworks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712080440352_sync9.cs" />
+    <Compile Include="Migrations\201712080440352_sync9.Designer.cs">
+      <DependentUpon>201712080440352_sync9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712080449517_synx10.cs" />
+    <Compile Include="Migrations\201712080449517_synx10.Designer.cs">
+      <DependentUpon>201712080449517_synx10.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712080517192_sync11.cs" />
+    <Compile Include="Migrations\201712080517192_sync11.Designer.cs">
+      <DependentUpon>201712080517192_sync11.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712080536566_sync111.cs" />
+    <Compile Include="Migrations\201712080536566_sync111.Designer.cs">
+      <DependentUpon>201712080536566_sync111.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712080554391_sync12.cs" />
+    <Compile Include="Migrations\201712080554391_sync12.Designer.cs">
+      <DependentUpon>201712080554391_sync12.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712080557284_sync13.cs" />
+    <Compile Include="Migrations\201712080557284_sync13.Designer.cs">
+      <DependentUpon>201712080557284_sync13.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AppUser.cs" />
@@ -322,6 +346,8 @@
     <Content Include="Views\FlightCrews\Edit.cshtml" />
     <Content Include="Views\FlightCrews\Index.cshtml" />
     <Content Include="Views\ReservationFlightDetails\TicketDetails.cshtml" />
+    <Content Include="Views\Flights\SelectFlightToDepart.cshtml" />
+    <Content Include="Views\Flights\SelectFliers.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -386,6 +412,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712080219375_ohgoshihopethisworks.resx">
       <DependentUpon>201712080219375_ohgoshihopethisworks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080440352_sync9.resx">
+      <DependentUpon>201712080440352_sync9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080449517_synx10.resx">
+      <DependentUpon>201712080449517_synx10.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080517192_sync11.resx">
+      <DependentUpon>201712080517192_sync11.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080536566_sync111.resx">
+      <DependentUpon>201712080536566_sync111.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080554391_sync12.resx">
+      <DependentUpon>201712080554391_sync12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712080557284_sync13.resx">
+      <DependentUpon>201712080557284_sync13.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
