@@ -269,7 +269,7 @@ namespace FinalProject.Controllers
 
             List<AppUser> allUsers= query.ToList();
 
-            SelectList allCitieslist = new SelectList(allUsers, "id", "AdvantageNumber");
+            SelectList allCitieslist = new SelectList(allUsers, "id", "AdvantageNumberName");
 
             return allCitieslist;
         }

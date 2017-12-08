@@ -59,6 +59,14 @@ namespace FinalProject.Models
         [Display(Name = "Employee Type")]
         public EmpType EmployeeType {get;set;}
 
+        public string AdvantageNumberName
+        {
+            get
+            {
+                return String.Format("{0} {1} {2}", AdvantageNumber, FirstName, LastName);
+            }
+        }
+
         public virtual List<Reservation> Reservations { get; set; }
         //This method allows you to create a new user
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<AppUser> manager)

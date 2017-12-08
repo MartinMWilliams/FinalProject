@@ -54,6 +54,7 @@ namespace FinalProject.Models
             }
         }
 
+
         //Navigation property for ReservationFlightDetail
         public virtual List<ReservationFlightDetail> ReservationFlightDetails { get; set; }
     }
